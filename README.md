@@ -948,13 +948,13 @@ npm run dev
 *Open new terminal*
 
 ```bash
-cd frontend-desktop
+cd desktop
 
 # Activate virtual environment
 source ../chemical_project/venv/bin/activate
 
 # Install dependencies
-pip install PyQt5 matplotlib requests
+pip install -r requirements.txt
 
 # Run application
 python main.py
@@ -981,7 +981,7 @@ python main.py
 
 ### Desktop Application
 
-1. Run `python main.py` from `frontend-desktop/`
+1. Run `python main.py` from `desktop/`
 2. Login with same credentials as web
 3. Upload CSV file
 4. View Matplotlib charts and statistics
@@ -1009,13 +1009,13 @@ Web-app/
 │   │   └── App.jsx         # Main app
 │   └── package.json
 │
-├── frontend-desktop/         # PyQt5 Frontend
+├── desktop/         # PyQt5 Frontend
 │   ├── main.py              # Entry point
-│   ├── login_window.py      # Authentication
-│   ├── upload_window.py     # Main window
-│   ├── api_client.py        # HTTP client
-│   ├── history_widget.py    # History view
-│   └── charts_widget.py     # Matplotlib charts
+│   ├── desktop_app.py       # Legacy app container (optional)
+│   ├── requirements.txt    # Desktop dependencies
+│   ├── core/               # API client
+│   ├── ui/                 # UI (views & components)
+│   └── requirements.txt    # pip dependencies
 │
 └── sample_equipment_data.csv # Sample data
 ```
@@ -1075,7 +1075,7 @@ cd frontend-web
 npm run dev
 
 # Terminal 3 - Desktop Frontend
-cd frontend-desktop
+cd desktop
 source ../chemical_project/venv/bin/activate
 python main.py
 ```

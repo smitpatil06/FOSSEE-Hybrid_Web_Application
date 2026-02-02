@@ -74,6 +74,12 @@ class UploadWindow(QMainWindow):
         # History Widget
         self.history_widget = HistoryWidget(self.api_client)
         self.history_widget.batch_selected.connect(self.load_batch)
+        # Connect delete signal to handler to clear UI when a batch is removed
+        try:
+            self.history_widget.batch_deleted.connect(self.on_batch_deleted)
+        except Exception:
+            # Backwards compatibility: some history widgets emit no-arg signal
+            self.history_widget.batch_deleted_simple.connect(lambda: self.on_batch_deleted(None))
         sidebar_layout.addWidget(self.history_widget)
         
         # FOSSEE Link
@@ -226,6 +232,23 @@ class UploadWindow(QMainWindow):
             
         except Exception as e:
             QMessageBox.warning(self, "Error", f"Failed to load data: {str(e)}")
+    
+    def on_batch_deleted(self, batch_id):
+        """Handle cleanup when a batch is deleted from history"""
+        # If deleted batch is currently displayed, clear UI
+        if batch_id is None or getattr(self, 'current_batch_id', None) == batch_id:
+            self.current_batch_id = None
+            # Clear stat cards
+            self.update_card_value(self.card_total, '-')
+            self.update_card_value(self.card_flow, '-')
+            self.update_card_value(self.card_press, '-')
+            # Clear chart
+            try:
+                self.chart_widget.update_chart({})
+            except Exception:
+                pass
+            # Clear table
+            self.table.setRowCount(0)
     
     def logout(self):
         """Handle logout"""
