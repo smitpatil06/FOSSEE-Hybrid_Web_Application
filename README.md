@@ -53,7 +53,7 @@ Chemical facilities generate vast amounts of equipment parameter data (flowrate,
 
 ![Desktop Application](desktop-app.png)
 
-> **⚠️ Important:** some features of UI may not be visible here as i am using arch based linux with a coustom DE(Desktop Environment).
+> **⚠️ Important:** Some UI features may not be visible in this screenshot as I am using Arch-based Linux (EndeavourOS) with a custom Desktop Environment (DWM).
 
 ### Desktop Login
 
