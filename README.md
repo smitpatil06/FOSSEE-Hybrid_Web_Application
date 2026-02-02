@@ -904,9 +904,8 @@ Submitted as part of FOSSEE (Free/Libre and Open Source Software for Education) 
 
 For issues or questions:
 1. Check **Troubleshooting** section above
-2. Review **TEACHING.md** for learning resources
-3. Check project GitHub issues
-4. Review Django & React official documentation
+2. Check project GitHub issues
+3. Review Django & React official documentation
 
 **Last Updated:** February 2, 2026  
 **Status:** Production Ready ✅
@@ -1151,16 +1150,6 @@ pip install PyQt5 matplotlib requests
 ## Demo Video
 
 *Link to be added*
-
----
-
-## Learning Resources
-
-Additional documentation for understanding the codebase:
-- `LEARNING_GUIDE.md` - Django fundamentals to advanced
-- `ARCHITECTURE_DIAGRAMS.md` - Visual system architecture
-- `HANDS_ON_TUTORIAL.md` - Practical exercises
-- `AUTHENTICATION_README.md` - Auth implementation details
 
 ---
 
