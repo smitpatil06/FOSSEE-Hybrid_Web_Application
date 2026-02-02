@@ -9,6 +9,7 @@ A sophisticated hybrid application featuring independent Web and Desktop fronten
 ## 📋 Table of Contents
 
 - [Overview](#-overview)
+- [Screenshots](#-screenshots)
 - [Features](#-features)
 - [Technology Stack](#-technology-stack)
 - [System Requirements](#-system-requirements)
@@ -43,6 +44,28 @@ Chemical facilities generate vast amounts of equipment parameter data (flowrate,
 2. Instantly visualize equipment distribution and performance metrics
 3. Generate professional PDF reports for stakeholders
 4. Maintain secure per-user data audit trails
+
+---
+
+## 📸 Screenshots
+
+### Desktop Application
+
+![Desktop Application](desktop-app.png)
+
+> **⚠️ Important:** The desktop application requires an active backend server running at `http://localhost:8000`. Make sure to start the Django backend before launching the desktop app. See [Installation](#-installation) section for detailed setup instructions.
+
+### Desktop Login
+
+![Desktop Login](desktop-login.png)
+
+### Web Application
+
+![Web Application](web-app.png)
+
+### Web Login
+
+![Web Login](web-login.png)
 
 ---
 
@@ -153,7 +176,7 @@ Chemical facilities generate vast amounts of equipment parameter data (flowrate,
 
 ```bash
 git clone https://github.com/smitpatil06/FOSSEE-Hybrid_Web_Application.git
-cd FOSSEE-Hybrid_Web_Application/Web-app
+cd FOSSEE-Hybrid_Web_Application
 ```
 
 ---
@@ -208,7 +231,7 @@ Starting development server at http://127.0.0.1:8000/
 *Open a new terminal window*
 
 ```bash
-cd /path/to/Web-app/frontend-web
+cd frontend-web
 
 # Install Node.js dependencies
 npm install
@@ -227,7 +250,7 @@ npm run dev
 *Open a new terminal window*
 
 ```bash
-cd /path/to/Web-app/desktop
+cd frontend-desktop
 
 # Activate backend virtual environment
 source ../chemical_project/venv/bin/activate
@@ -251,7 +274,7 @@ sudo apt-get install postgresql postgresql-contrib
 pip install psycopg2-binary
 
 # Run setup script
-cd /path/to/Web-app/chemical_project
+cd chemical_project
 chmod +x setup_postgres.sh
 ./setup_postgres.sh
 
@@ -317,7 +340,7 @@ Starting development server at http://127.0.0.1:8000/
 *Open a new PowerShell window*
 
 ```powershell
-cd C:\path\to\Web-app\frontend-web
+cd frontend-web
 
 # Install Node.js dependencies
 npm install
@@ -336,7 +359,7 @@ npm run dev
 *Open a new PowerShell window*
 
 ```powershell
-cd C:\path\to\Web-app\desktop
+cd frontend-desktop
 
 # Activate backend virtual environment
 ..\chemical_project\venv\Scripts\Activate.ps1
@@ -881,9 +904,8 @@ Submitted as part of FOSSEE (Free/Libre and Open Source Software for Education) 
 
 For issues or questions:
 1. Check **Troubleshooting** section above
-2. Review **TEACHING.md** for learning resources
-3. Check project GitHub issues
-4. Review Django & React official documentation
+2. Check project GitHub issues
+3. Review Django & React official documentation
 
 **Last Updated:** February 2, 2026  
 **Status:** Production Ready ✅
@@ -896,7 +918,7 @@ For issues or questions:
 
 ```bash
 git clone https://github.com/smitpatil06/FOSSEE-Hybrid_Web_Application.git
-cd FOSSEE-Hybrid_Web_Application/Web-app
+cd FOSSEE-Hybrid_Web_Application
 ```
 
 ### 2. Backend Setup
@@ -992,7 +1014,7 @@ python main.py
 ## Project Structure
 
 ```
-Web-app/
+FOSSEE-Hybrid_Web_Application/
 ├── chemical_project/          # Django Backend
 │   ├── api/                   # REST API
 │   │   ├── models.py         # Database models
@@ -1128,16 +1150,6 @@ pip install PyQt5 matplotlib requests
 ## Demo Video
 
 *Link to be added*
-
----
-
-## Learning Resources
-
-Additional documentation for understanding the codebase:
-- `LEARNING_GUIDE.md` - Django fundamentals to advanced
-- `ARCHITECTURE_DIAGRAMS.md` - Visual system architecture
-- `HANDS_ON_TUTORIAL.md` - Practical exercises
-- `AUTHENTICATION_README.md` - Auth implementation details
 
 ---
 
