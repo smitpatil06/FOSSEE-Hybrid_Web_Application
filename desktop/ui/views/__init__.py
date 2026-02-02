@@ -1,1 +1,0 @@
-# Desktop UI views package

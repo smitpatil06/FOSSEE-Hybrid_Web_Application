@@ -96,7 +96,7 @@ class DashboardStatsView(APIView):
             return Response({"error": "Batch not found"}, status=404)
 
     def delete(self, request, batch_id):
-        """Allow users to delete their own upload batch and associated equipment records."""
+        """Allow users to delete their own upload batches."""
         try:
             batch = UploadBatch.objects.get(id=batch_id, uploaded_by=request.user)
             batch.delete()

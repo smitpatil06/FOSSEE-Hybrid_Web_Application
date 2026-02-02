@@ -88,3 +88,22 @@ class APIClient:
     def get_report_url(self, batch_id):
         """Get PDF report URL"""
         return f"{self.base_url}/report/{batch_id}/"
+
+    def download_report(self, batch_id, save_path=None):
+        """Download PDF report for batch_id and save to save_path.
+
+        If save_path is None, returns raw bytes.
+        """
+        url = self.get_report_url(batch_id)
+        resp = self.session.get(url, stream=True, timeout=self.timeout)
+        resp.raise_for_status()
+
+        if save_path is None:
+            return resp.content
+
+        # Stream to file
+        with open(save_path, 'wb') as fd:
+            for chunk in resp.iter_content(chunk_size=8192):
+                if chunk:
+                    fd.write(chunk)
+        return save_path
