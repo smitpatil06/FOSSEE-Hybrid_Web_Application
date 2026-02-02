@@ -20,7 +20,7 @@ A sophisticated hybrid application featuring independent Web and Desktop fronten
 - [Usage Guide](#-usage-guide)
 - [API Documentation](#-api-documentation)
 - [Database Configuration](#-database-configuration)
-- [Learning Resources](#-learning-resources)
+
 - [Requirements Fulfillment](#-requirements-fulfillment)
 - [Troubleshooting](#-troubleshooting)
 
