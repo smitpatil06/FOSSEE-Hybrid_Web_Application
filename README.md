@@ -53,7 +53,7 @@ Chemical facilities generate vast amounts of equipment parameter data (flowrate,
 
 ![Desktop Application](desktop-app.png)
 
-> **⚠️ Important:** The desktop application requires an active backend server running at `http://localhost:8000`. Make sure to start the Django backend before launching the desktop app. See [Installation](#-installation) section for detailed setup instructions.
+> **⚠️ Important:** some features of UI may not be visible here as i am using arch based linux with a coustom DE(Desktop Environment).
 
 ### Desktop Login
 
