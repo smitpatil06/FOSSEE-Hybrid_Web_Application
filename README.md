@@ -62,32 +62,32 @@ A hybrid application featuring independent Web (React) and Desktop (PyQt5) front
 
 ## 🛠️ Technology Stack
 
-### Frontend (Web)
-- **React** 19.2.0 - UI framework
-- **Vite** 7.2.4 - Build tool
-- **Chart.js** 4.5.1 + react-chartjs-2 5.3.1 - Data visualization
-- **TailwindCSS** 4.1.18 - Styling
-- **Axios** 1.13.2 - HTTP client
+### 🌐 Frontend (Web)
+- ⚛️ **React** 19.2.0 - UI framework
+- ⚡ **Vite** 7.2.4 - Build tool
+- 📊 **Chart.js** 4.5.1 + react-chartjs-2 5.3.1 - Data visualization
+- 🎨 **TailwindCSS** 4.1.18 - Styling
+- 🔌 **Axios** 1.13.2 - HTTP client
 
-### Backend (Django)
-- **Django** 6.0.1 - Web framework
-- **Django REST Framework** 3.16.1 - REST API
-- **django-cors-headers** 4.9.0 - CORS support
-- **Pandas** 3.0.0 - Data processing
-- **NumPy** 2.4.1 - Numerical computing
-- **Matplotlib** 3.10.8 - Server-side charts
-- **ReportLab** 4.4.9 - PDF generation
-- **Pillow** 12.1.0 - Image processing
+### 🔧 Backend (Django)
+- 🐍 **Django** 6.0.1 - Web framework
+- 🔗 **Django REST Framework** 3.16.1 - REST API
+- 🌍 **django-cors-headers** 4.9.0 - CORS support
+- 🐼 **Pandas** 3.0.0 - Data processing
+- 🔢 **NumPy** 2.4.1 - Numerical computing
+- 📈 **Matplotlib** 3.10.8 - Server-side charts
+- 📄 **ReportLab** 4.4.9 - PDF generation
+- 🖼️ **Pillow** 12.1.0 - Image processing
 
-### Frontend (Desktop)
-- **Python** 3.10+ - Programming language
-- **PyQt5** 5.15.11 - GUI framework
-- **Matplotlib** 3.10.8 - Data visualization
-- **Requests** 2.32.3 - HTTP client
+### 💻 Frontend (Desktop)
+- 🐍 **Python** 3.10+ - Programming language
+- 🖥️ **PyQt5** 5.15.11 - GUI framework
+- 📊 **Matplotlib** 3.10.8 - Data visualization
+- 🌐 **Requests** 2.32.3 - HTTP client
 
-### Database
-- **SQLite** 3.0+ - Default embedded database
-- **PostgreSQL** 12+ - Optional production database
+### 🗄️ Database
+- 💾 **SQLite** 3.0+ - Default embedded database
+- 🐘 **PostgreSQL** 12+ - Optional production database
 
 ---
 
@@ -95,35 +95,46 @@ A hybrid application featuring independent Web (React) and Desktop (PyQt5) front
 
 ### Prerequisites
 - **Python** 3.10 or higher
-- **Node.js** 18+ and npm (for web frontend)
+- **Node.js** 18+ and npm/pnpm (for web frontend)
 - **Git** (for cloning repository)
 
-### 1. Clone Repository
+### 🪟 Windows Installation
 
-```bash
+#### Step 1: Install Prerequisites
+
+```powershell
+# Install Python 3.10+ from https://www.python.org/downloads/
+# Install Node.js 18+ from https://nodejs.org/
+
+# Verify installations
+python --version
+node --version
+npm --version
+```
+
+#### Step 2: Clone Repository
+
+```powershell
 git clone https://github.com/smitpatil06/FOSSEE-Hybrid_Web_Application.git
 cd FOSSEE-Hybrid_Web_Application
 ```
 
-### 2. Backend Setup
+#### Step 3: Backend Setup
 
-```bash
+```powershell
 cd chemical_project
 
 # Create and activate virtual environment
-python3 -m venv venv
-source venv/bin/activate  # Linux/macOS
-# OR
-.\venv\Scripts\Activate.ps1  # Windows PowerShell
+python -m venv venv
+.\venv\Scripts\Activate.ps1
 
 # Install dependencies
 pip install django==6.0.1 djangorestframework==3.16.1 django-cors-headers==4.9.0 pandas==3.0.0 matplotlib==3.10.8 reportlab==4.4.9 pillow==12.1.0 requests==2.32.3
 
 # Setup database (SQLite by default)
-export USE_SQLITE=True  # Linux/macOS
-# OR
-$env:USE_SQLITE = 'True'  # Windows PowerShell
+$env:USE_SQLITE = 'True'
 
+# Run migrations
 python manage.py makemigrations
 python manage.py migrate
 python manage.py createsuperuser
@@ -134,33 +145,35 @@ python manage.py runserver
 
 Backend runs at: **http://localhost:8000**
 
-### 3. Web Frontend Setup
+#### Step 4: Web Frontend Setup
 
-*Open a new terminal*
+*Open a new PowerShell terminal*
 
-```bash
+```powershell
 cd frontend-web
 
-# Install dependencies
+# Install dependencies (using npm or pnpm)
 npm install
+# OR
+pnpm install
 
 # Start development server
 npm run dev
+# OR
+pnpm run dev
 ```
 
 Web app runs at: **http://localhost:5173**
 
-### 4. Desktop Frontend Setup
+#### Step 5: Desktop Frontend Setup
 
-*Open a new terminal*
+*Open a new PowerShell terminal*
 
-```bash
+```powershell
 cd frontend-desktop
 
 # Activate backend virtual environment
-source ../chemical_project/venv/bin/activate  # Linux/macOS
-# OR
-..\chemical_project\venv\Scripts\Activate.ps1  # Windows
+..\chemical_project\venv\Scripts\Activate.ps1
 
 # Install dependencies
 pip install PyQt5==5.15.11 matplotlib==3.10.8 requests==2.32.3
@@ -169,12 +182,111 @@ pip install PyQt5==5.15.11 matplotlib==3.10.8 requests==2.32.3
 python desktop_app.py
 ```
 
+---
+
+### 🐧 Ubuntu/Linux Installation
+
+#### Step 1: Install Prerequisites
+
+```bash
+# Update package list
+sudo apt update
+
+# Install Python 3.10+
+sudo apt install python3 python3-pip python3-venv
+
+# Install Node.js 18+ (via NodeSource)
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt install -y nodejs
+
+# Install Git
+sudo apt install git
+
+# Verify installations
+python3 --version
+node --version
+npm --version
+```
+
+#### Step 2: Clone Repository
+
+```bash
+git clone https://github.com/smitpatil06/FOSSEE-Hybrid_Web_Application.git
+cd FOSSEE-Hybrid_Web_Application
+```
+
+#### Step 3: Backend Setup
+
+```bash
+cd chemical_project
+
+# Create and activate virtual environment
+python3 -m venv venv
+source venv/bin/activate
+
+# Install dependencies
+pip install django==6.0.1 djangorestframework==3.16.1 django-cors-headers==4.9.0 pandas==3.0.0 matplotlib==3.10.8 reportlab==4.4.9 pillow==12.1.0 requests==2.32.3
+
+# Setup database (SQLite by default)
+export USE_SQLITE=True
+
+# Run migrations
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+
+# Start backend server
+python manage.py runserver
+```
+
+Backend runs at: **http://localhost:8000**
+
+#### Step 4: Web Frontend Setup
+
+*Open a new terminal*
+
+```bash
+cd frontend-web
+
+# Install dependencies (using npm or pnpm)
+npm install
+# OR
+pnpm install
+
+# Start development server
+npm run dev
+# OR
+pnpm run dev
+```
+
+Web app runs at: **http://localhost:5173**
+
+#### Step 5: Desktop Frontend Setup
+
+*Open a new terminal*
+
+```bash
+cd frontend-desktop
+
+# Activate backend virtual environment
+source ../chemical_project/venv/bin/activate
+
+# Install dependencies
+pip install PyQt5==5.15.11 matplotlib==3.10.8 requests==2.32.3
+
+# Run desktop application
+python desktop_app.py
+```
+
+---
+
 ### Optional: PostgreSQL Setup
 
 If you prefer PostgreSQL over SQLite:
 
+**Ubuntu/Linux:**
 ```bash
-# Install PostgreSQL (Linux)
+# Install PostgreSQL
 sudo apt-get install postgresql postgresql-contrib
 
 # Install Python adapter
@@ -187,6 +299,18 @@ chmod +x setup_postgres.sh
 
 # Configure and migrate
 export USE_POSTGRESQL=True
+python manage.py migrate
+```
+
+**Windows:**
+```powershell
+# Download and install PostgreSQL from https://www.postgresql.org/download/windows/
+
+# Install Python adapter
+pip install psycopg2-binary
+
+# Configure and migrate
+$env:USE_POSTGRESQL = 'True'
 python manage.py migrate
 ```
 
@@ -322,7 +446,9 @@ npm run dev -- --port 5174
 ## 👨‍💻 Author
 
 **Smit Patil**  
-GitHub: [@smitpatil06](https://github.com/smitpatil06)
+- 🐙 GitHub: [@smitpatil06](https://github.com/smitpatil06)
+- 💼 LinkedIn: [04-smit-patil](https://www.linkedin.com/in/04-smit-patil/)
+- 🐦 Twitter/X: [@smit_patil06](https://x.com/smit_patil06)
 
 ---
 
