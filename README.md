@@ -66,34 +66,34 @@ A hybrid application featuring independent Web (React) and Desktop (PyQt5) front
 
 | Technology | Version | Description | Official Link |
 |------------|---------|-------------|---------------|
-| ![React](https://img.shields.io/badge/React-19.2.0-61DAFB?style=flat&logo=react&logoColor=white) | 19.2.0 | UI framework for web application | [React Docs →](https://react.dev/) |
-| ![Vite](https://img.shields.io/badge/Vite-7.2.4-646CFF?style=flat&logo=vite&logoColor=white) | 7.2.4 | Fast build tool and dev server | [Vite Docs →](https://vite.dev/) |
-| ![Chart.js](https://img.shields.io/badge/Chart.js-4.5.1-FF6384?style=flat&logo=chartdotjs&logoColor=white) | 4.5.1 | Data visualization library | [Chart.js Docs →](https://www.chartjs.org/) |
-| ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.1.18-06B6D4?style=flat&logo=tailwindcss&logoColor=white) | 4.1.18 | Utility-first CSS framework | [Tailwind Docs →](https://tailwindcss.com/) |
-| ![Axios](https://img.shields.io/badge/Axios-1.13.2-5A29E4?style=flat&logo=axios&logoColor=white) | 1.13.2 | Promise-based HTTP client | [Axios Docs →](https://axios-http.com/) |
-| ![PyQt5](https://img.shields.io/badge/PyQt5-5.15.11-41CD52?style=flat&logo=qt&logoColor=white) | 5.15.11 | Cross-platform GUI framework (Desktop) | [PyQt5 Docs →](https://www.riverbankcomputing.com/software/pyqt/) |
+| [![React](https://img.shields.io/badge/React-19.2.0-61DAFB?style=flat&logo=react&logoColor=white)](https://react.dev/) | 19.2.0 | UI framework for web application | [React Docs →](https://react.dev/) |
+| [![Vite](https://img.shields.io/badge/Vite-7.2.4-646CFF?style=flat&logo=vite&logoColor=white)](https://vite.dev/) | 7.2.4 | Fast build tool and dev server | [Vite Docs →](https://vite.dev/) |
+| [![Chart.js](https://img.shields.io/badge/Chart.js-4.5.1-FF6384?style=flat&logo=chartdotjs&logoColor=white)](https://www.chartjs.org/) | 4.5.1 | Data visualization library | [Chart.js Docs →](https://www.chartjs.org/) |
+| [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.1.18-06B6D4?style=flat&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/) | 4.1.18 | Utility-first CSS framework | [Tailwind Docs →](https://tailwindcss.com/) |
+| [![Axios](https://img.shields.io/badge/Axios-1.13.2-5A29E4?style=flat&logo=axios&logoColor=white)](https://axios-http.com/) | 1.13.2 | Promise-based HTTP client | [Axios Docs →](https://axios-http.com/) |
+| [![PyQt5](https://img.shields.io/badge/PyQt5-5.15.11-41CD52?style=flat&logo=qt&logoColor=white)](https://www.riverbankcomputing.com/software/pyqt/) | 5.15.11 | Cross-platform GUI framework (Desktop) | [PyQt5 Docs →](https://www.riverbankcomputing.com/software/pyqt/) |
 
 ### 🔧 Backend Technologies
 
 | Technology | Version | Description | Official Link |
 |------------|---------|-------------|---------------|
-| ![Django](https://img.shields.io/badge/Django-6.0.1-092E20?style=flat&logo=django&logoColor=white) | 6.0.1 | High-level Python web framework | [Django Docs →](https://www.djangoproject.com/) |
-| ![DRF](https://img.shields.io/badge/Django_REST-3.16.1-A30000?style=flat&logo=django&logoColor=white) | 3.16.1 | Powerful REST API toolkit | [DRF Docs →](https://www.django-rest-framework.org/) |
-| ![Pandas](https://img.shields.io/badge/Pandas-3.0.0-150458?style=flat&logo=pandas&logoColor=white) | 3.0.0 | Data manipulation and analysis | [Pandas Docs →](https://pandas.pydata.org/) |
-| ![NumPy](https://img.shields.io/badge/NumPy-2.4.1-013243?style=flat&logo=numpy&logoColor=white) | 2.4.1 | Numerical computing library | [NumPy Docs →](https://numpy.org/) |
-| ![Matplotlib](https://img.shields.io/badge/Matplotlib-3.10.8-11557c?style=flat&logo=python&logoColor=white) | 3.10.8 | Plotting and visualization | [Matplotlib Docs →](https://matplotlib.org/) |
-| ![ReportLab](https://img.shields.io/badge/ReportLab-4.4.9-FF6B35?style=flat&logo=python&logoColor=white) | 4.4.9 | PDF generation toolkit | [ReportLab Docs →](https://www.reportlab.com/) |
-| ![CORS](https://img.shields.io/badge/CORS_Headers-4.9.0-092E20?style=flat&logo=django&logoColor=white) | 4.9.0 | Cross-Origin Resource Sharing | [CORS Docs →](https://github.com/adamchainz/django-cors-headers) |
+| [![Django](https://img.shields.io/badge/Django-6.0.1-092E20?style=flat&logo=django&logoColor=white)](https://www.djangoproject.com/) | 6.0.1 | High-level Python web framework | [Django Docs →](https://www.djangoproject.com/) |
+| [![DRF](https://img.shields.io/badge/Django_REST-3.16.1-A30000?style=flat&logo=django&logoColor=white)](https://www.django-rest-framework.org/) | 3.16.1 | Powerful REST API toolkit | [DRF Docs →](https://www.django-rest-framework.org/) |
+| [![Pandas](https://img.shields.io/badge/Pandas-3.0.0-150458?style=flat&logo=pandas&logoColor=white)](https://pandas.pydata.org/) | 3.0.0 | Data manipulation and analysis | [Pandas Docs →](https://pandas.pydata.org/) |
+| [![NumPy](https://img.shields.io/badge/NumPy-2.4.1-013243?style=flat&logo=numpy&logoColor=white)](https://numpy.org/) | 2.4.1 | Numerical computing library | [NumPy Docs →](https://numpy.org/) |
+| [![Matplotlib](https://img.shields.io/badge/Matplotlib-3.10.8-11557c?style=flat&logo=python&logoColor=white)](https://matplotlib.org/) | 3.10.8 | Plotting and visualization | [Matplotlib Docs →](https://matplotlib.org/) |
+| [![ReportLab](https://img.shields.io/badge/ReportLab-4.4.9-FF6B35?style=flat&logo=python&logoColor=white)](https://www.reportlab.com/) | 4.4.9 | PDF generation toolkit | [ReportLab Docs →](https://www.reportlab.com/) |
+| [![CORS](https://img.shields.io/badge/CORS_Headers-4.9.0-092E20?style=flat&logo=django&logoColor=white)](https://github.com/adamchainz/django-cors-headers) | 4.9.0 | Cross-Origin Resource Sharing | [CORS Docs →](https://github.com/adamchainz/django-cors-headers) |
 
 ### 🗄️ Database & Tools
 
 | Technology | Version | Description | Official Link |
 |------------|---------|-------------|---------------|
-| ![SQLite](https://img.shields.io/badge/SQLite-3.0+-003B57?style=flat&logo=sqlite&logoColor=white) | 3.0+ | Embedded SQL database (default) | [SQLite Docs →](https://www.sqlite.org/) |
-| ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-12+-4169E1?style=flat&logo=postgresql&logoColor=white) | 12+ | Advanced relational database (optional) | [PostgreSQL Docs →](https://www.postgresql.org/) |
-| ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat&logo=python&logoColor=white) | 3.10+ | Core programming language | [Python Docs →](https://www.python.org/) |
-| ![Requests](https://img.shields.io/badge/Requests-2.32.3-2C5BB4?style=flat&logo=python&logoColor=white) | 2.32.3 | HTTP library for Python | [Requests Docs →](https://requests.readthedocs.io/) |
-| ![Pillow](https://img.shields.io/badge/Pillow-12.1.0-FFD43B?style=flat&logo=python&logoColor=black) | 12.1.0 | Python Imaging Library | [Pillow Docs →](https://pillow.readthedocs.io/) |
+| [![SQLite](https://img.shields.io/badge/SQLite-3.0+-003B57?style=flat&logo=sqlite&logoColor=white)](https://www.sqlite.org/) | 3.0+ | Embedded SQL database (default) | [SQLite Docs →](https://www.sqlite.org/) |
+| [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-12+-4169E1?style=flat&logo=postgresql&logoColor=white)](https://www.postgresql.org/) | 12+ | Advanced relational database (optional) | [PostgreSQL Docs →](https://www.postgresql.org/) |
+| [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/) | 3.10+ | Core programming language | [Python Docs →](https://www.python.org/) |
+| [![Requests](https://img.shields.io/badge/Requests-2.32.3-2C5BB4?style=flat&logo=python&logoColor=white)](https://requests.readthedocs.io/) | 2.32.3 | HTTP library for Python | [Requests Docs →](https://requests.readthedocs.io/) |
+| [![Pillow](https://img.shields.io/badge/Pillow-12.1.0-FFD43B?style=flat&logo=python&logoColor=black)](https://pillow.readthedocs.io/) | 12.1.0 | Python Imaging Library | [Pillow Docs →](https://pillow.readthedocs.io/) |
 
 ---
 
