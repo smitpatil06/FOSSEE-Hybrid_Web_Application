@@ -9,6 +9,7 @@ A sophisticated hybrid application featuring independent Web and Desktop fronten
 ## 📋 Table of Contents
 
 - [Overview](#-overview)
+- [Screenshots](#-screenshots)
 - [Features](#-features)
 - [Technology Stack](#-technology-stack)
 - [System Requirements](#-system-requirements)
@@ -16,12 +17,13 @@ A sophisticated hybrid application featuring independent Web and Desktop fronten
   - [Linux Installation](#linux-installation)
   - [Windows Installation](#windows-installation)
 - [Project Architecture](#-project-architecture)
-- [Usage Guide](#-usage-guide)
-- [API Documentation](#-api-documentation)
 - [Database Configuration](#-database-configuration)
-- [Learning Resources](#-learning-resources)
-- [Requirements Fulfillment](#-requirements-fulfillment)
 - [Troubleshooting](#-troubleshooting)
+- [Demo & Submission](#-demo--submission)
+- [Author](#-author)
+- [License](#-license)
+- [Acknowledgments](#-acknowledgments)
+- [Support](#-support)
 
 ---
 
@@ -43,6 +45,28 @@ Chemical facilities generate vast amounts of equipment parameter data (flowrate,
 2. Instantly visualize equipment distribution and performance metrics
 3. Generate professional PDF reports for stakeholders
 4. Maintain secure per-user data audit trails
+
+---
+
+## 📸 Screenshots
+
+### Desktop Application
+
+![Desktop Application](desktop-app.png)
+
+> **⚠️ Important:** Some UI features may not be visible in this screenshot as I am using Arch-based Linux (EndeavourOS) with a custom Desktop Environment (DWM).
+
+### Desktop Login
+
+![Desktop Login](desktop-login.png)
+
+### Web Application
+
+![Web Application](web-app.png)
+
+### Web Login
+
+![Web Login](web-login.png)
 
 ---
 
@@ -78,45 +102,45 @@ Chemical facilities generate vast amounts of equipment parameter data (flowrate,
 
 ### Frontend (Web)
 
-| Technology | Version | Purpose |
-|-----------|---------|---------|
-| React | 19.2.0 | UI framework with modern hooks |
-| Vite | 7.2.4 | Lightning-fast build tool |
-| Chart.js | 4.5.1 | Interactive chart library |
-| react-chartjs-2 | 5.3.1 | React wrapper for Chart.js |
-| TailwindCSS | 4.1.18 | Utility-first CSS framework |
-| Axios | 1.13.2 | HTTP client with interceptors |
+| Technology | Version | Purpose | Icon |
+|-----------|---------|---------|------|
+| React ⚛️ | 19.2.0 | UI framework with modern hooks | ![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black) |
+| Vite ⚡ | 7.2.4 | Lightning-fast build tool | ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white) |
+| Chart.js 📊 | 4.5.1 | Interactive chart library | ![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?style=flat&logo=chartdotjs&logoColor=white) |
+| react-chartjs-2 | 5.3.1 | React wrapper for Chart.js | ![React](https://img.shields.io/badge/React_Chart-61DAFB?style=flat&logo=react&logoColor=black) |
+| TailwindCSS 🎨 | 4.1.18 | Utility-first CSS framework | ![TailwindCSS](https://img.shields.io/badge/Tailwind-06B6D4?style=flat&logo=tailwindcss&logoColor=white) |
+| Axios 🌐 | 1.13.2 | HTTP client with interceptors | ![Axios](https://img.shields.io/badge/Axios-5A29E4?style=flat&logo=axios&logoColor=white) |
 
 ### Backend (Django)
 
-| Technology | Version | Purpose |
-|-----------|---------|---------|
-| Django | 6.0.1 | Web framework |
-| Django REST Framework | 3.16.1 | REST API toolkit |
-| django-cors-headers | 4.9.0 | Cross-Origin Resource Sharing |
-| Pandas | 3.0.0 | Data processing & CSV parsing |
-| NumPy | 2.4.1 | Numerical computing |
-| Matplotlib | 3.10.8 | Chart generation (server-side) |
-| ReportLab | 4.4.9 | PDF generation |
-| Pillow | 12.1.0 | Image processing |
+| Technology | Version | Purpose | Icon |
+|-----------|---------|---------|------|
+| Django 🎸 | 6.0.1 | Web framework | ![Django](https://img.shields.io/badge/Django-092E20?style=flat&logo=django&logoColor=white) |
+| Django REST Framework 🔌 | 3.16.1 | REST API toolkit | ![DRF](https://img.shields.io/badge/DRF-A30000?style=flat&logo=django&logoColor=white) |
+| django-cors-headers 🔐 | 4.9.0 | Cross-Origin Resource Sharing | ![CORS](https://img.shields.io/badge/CORS-092E20?style=flat&logo=django&logoColor=white) |
+| Pandas 🐼 | 3.0.0 | Data processing & CSV parsing | ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white) |
+| NumPy 🔢 | 2.4.1 | Numerical computing | ![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat&logo=numpy&logoColor=white) |
+| Matplotlib 📈 | 3.10.8 | Chart generation (server-side) | ![Matplotlib](https://img.shields.io/badge/Matplotlib-11557c?style=flat&logo=python&logoColor=white) |
+| ReportLab 📄 | 4.4.9 | PDF generation | ![ReportLab](https://img.shields.io/badge/ReportLab-8B0000?style=flat&logo=adobe&logoColor=white) |
+| Pillow 🖼️ | 12.1.0 | Image processing | ![Pillow](https://img.shields.io/badge/Pillow-3776AB?style=flat&logo=python&logoColor=white) |
 
 ### Frontend (Desktop)
 
-| Technology | Version | Purpose |
-|-----------|---------|---------|
-| Python | 3.14 | Programming language |
-| PyQt5 | 5.15.11 | Cross-platform GUI framework |
-| Matplotlib | 3.10.8 | Data visualization |
-| Requests | 2.32.3 | HTTP library |
+| Technology | Version | Purpose | Icon |
+|-----------|---------|---------|------|
+| Python 🐍 | 3.14 | Programming language | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white) |
+| PyQt5 🖥️ | 5.15.11 | Cross-platform GUI framework | ![Qt](https://img.shields.io/badge/Qt-41CD52?style=flat&logo=qt&logoColor=white) |
+| Matplotlib 📊 | 3.10.8 | Data visualization | ![Matplotlib](https://img.shields.io/badge/Matplotlib-11557c?style=flat&logo=python&logoColor=white) |
+| Requests 🌍 | 2.32.3 | HTTP library | ![Requests](https://img.shields.io/badge/Requests-3776AB?style=flat&logo=python&logoColor=white) |
 
 ### Database & Tools
 
-| Technology | Version | Purpose |
-|-----------|---------|---------|
-| SQLite | 3.0+ | Default embedded database |
-| PostgreSQL | 12+ | Optional relational database |
-| Git | 2.0+ | Version control |
-| VS Code | 1.95+ | Development environment |
+| Technology | Version | Purpose | Icon |
+|-----------|---------|---------|------|
+| SQLite 🗄️ | 3.0+ | Default embedded database | ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white) |
+| PostgreSQL 🐘 | 12+ | Optional relational database | ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white) |
+| Git 📝 | 2.0+ | Version control | ![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white) |
+| VS Code 💻 | 1.95+ | Development environment | ![VSCode](https://img.shields.io/badge/VS_Code-007ACC?style=flat&logo=visualstudiocode&logoColor=white) |
 
 ---
 
@@ -153,7 +177,7 @@ Chemical facilities generate vast amounts of equipment parameter data (flowrate,
 
 ```bash
 git clone https://github.com/smitpatil06/FOSSEE-Hybrid_Web_Application.git
-cd FOSSEE-Hybrid_Web_Application/Web-app
+cd FOSSEE-Hybrid_Web_Application
 ```
 
 ---
@@ -208,7 +232,7 @@ Starting development server at http://127.0.0.1:8000/
 *Open a new terminal window*
 
 ```bash
-cd /path/to/Web-app/frontend-web
+cd frontend-web
 
 # Install Node.js dependencies
 npm install
@@ -251,7 +275,7 @@ sudo apt-get install postgresql postgresql-contrib
 pip install psycopg2-binary
 
 # Run setup script
-cd /path/to/Web-app/chemical_project
+cd chemical_project
 chmod +x setup_postgres.sh
 ./setup_postgres.sh
 
@@ -317,7 +341,7 @@ Starting development server at http://127.0.0.1:8000/
 *Open a new PowerShell window*
 
 ```powershell
-cd C:\path\to\Web-app\frontend-web
+cd frontend-web
 
 # Install Node.js dependencies
 npm install
@@ -554,194 +578,6 @@ Browser: Download or open PDF
 
 ---
 
-## 📖 Usage Guide
-
-### Web Application
-
-1. **Access Application:**
-   ```
-   Open browser → http://localhost:5173
-   ```
-
-2. **Register Account:**
-   - Click "Register" tab
-   - Enter email, username, password
-   - Submit form
-   - Redirect to login page
-
-3. **Login:**
-   - Enter credentials
-   - Click "Login"
-   - Redirect to upload dashboard
-
-4. **Upload Data:**
-   - Click "Upload Dataset"
-   - Drag-and-drop CSV or browse file
-   - System processes data
-   - Charts render automatically
-
-5. **Download Report:**
-   - Click "Download PDF" in history
-   - PDF opens/downloads with charts
-
-6. **View History:**
-   - Last 5 uploads shown in history panel
-   - Shows file name, upload date, record count
-
-### Desktop Application
-
-1. **Start Application:**
-   ```bash
-   python desktop_app.py
-   ```
-
-2. **Login:**
-   - Enter email (or username)
-   - Enter password
-   - Click "Login"
-   - Or register new account
-
-3. **Upload Data:**
-   - Click "Browse..." to select CSV
-   - Click "Upload & Analyze"
-   - View Matplotlib charts (bar + pie)
-
-4. **View History:**
-   - "Recent Datasets" tab shows uploads
-   - Right-click dataset to delete
-   - Click ↻ to refresh list
-
-5. **Download Report:**
-   - Select dataset → "Download PDF"
-   - PDF saves to Downloads folder
-
----
-
-## 📡 API Documentation
-
-### Authentication Endpoints
-
-#### Register User
-```http
-POST /api/auth/register/
-Content-Type: application/json
-
-{
-  "email": "smit@example.com",
-  "username": "smit",
-  "password": "smit"
-}
-
-Response: 201 Created
-{
-  "user_id": 1,
-  "token": "abc123xyz789...",
-  "email": "smit@example.com"
-}
-```
-
-#### Login
-```http
-POST /api/auth/login/
-Content-Type: application/json
-
-{
-  "username": "smit",
-  "password": "smit"
-}
-
-Response: 200 OK
-{
-  "user_id": 1,
-  "token": "abc123xyz789...",
-  "email": "smit@example.com"
-}
-```
-
-#### Logout
-```http
-POST /api/auth/logout/
-Authorization: Token abc123xyz789...
-
-Response: 200 OK
-{
-  "message": "Logout successful"
-}
-```
-
-### Data Endpoints
-
-#### Upload CSV
-```http
-POST /api/upload/
-Authorization: Token abc123xyz789...
-Content-Type: multipart/form-data
-
-File: equipment_data.csv
-
-Response: 201 Created
-{
-  "batch_id": 5,
-  "filename": "equipment_data.csv",
-  "uploaded_at": "2026-02-02T15:30:00Z",
-  "record_count": 15
-}
-```
-
-#### Get Dashboard Summary
-```http
-GET /api/summary/<batch_id>/
-Authorization: Token abc123xyz789...
-
-Response: 200 OK
-{
-  "batch_id": 5,
-  "filename": "equipment_data.csv",
-  "total_equipment": 15,
-  "avg_flowrate": 119.80,
-  "avg_pressure": 6.11,
-  "type_distribution": {
-    "Pump": 3,
-    "Compressor": 2,
-    "Valve": 2,
-    "HeatExchanger": 3,
-    "Reactor": 2,
-    "Condenser": 2
-  }
-}
-```
-
-#### Get Upload History
-```http
-GET /api/history/
-Authorization: Token abc123xyz789...
-
-Response: 200 OK
-{
-  "uploads": [
-    {
-      "batch_id": 5,
-      "filename": "equipment_data.csv",
-      "uploaded_at": "2026-02-02T15:30:00Z",
-      "record_count": 15
-    },
-    ...
-  ]
-}
-```
-
-#### Download PDF Report
-```http
-GET /api/report/<batch_id>/
-Authorization: Token abc123xyz789...
-
-Response: 200 OK
-Content-Type: application/pdf
-[PDF file with embedded matplotlib charts]
-```
-
----
-
 ## 💾 Database Configuration
 
 ### SQLite (Recommended for Development)
@@ -880,9 +716,8 @@ Submitted as part of FOSSEE (Free/Libre and Open Source Software for Education) 
 
 For issues or questions:
 1. Check **Troubleshooting** section above
-2. Review **TEACHING.md** for learning resources
-3. Check project GitHub issues
-4. Review Django & React official documentation
+2. Check project GitHub issues
+3. Review Django & React official documentation
 
 **Last Updated:** February 2, 2026  
 **Status:** Production Ready ✅
