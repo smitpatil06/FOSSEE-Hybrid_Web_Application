@@ -12,9 +12,13 @@ import {
   LineElement,
   BarElement,
   ArcElement,
+  RadarController,
+  RadialLinearScale,
+  PolarAreaController,
   Title,
   Tooltip,
   Legend,
+  Filler,
 } from 'chart.js'
 
 ChartJS.register(
@@ -24,9 +28,13 @@ ChartJS.register(
   LineElement,
   BarElement,
   ArcElement,
+  RadarController,
+  RadialLinearScale,
+  PolarAreaController,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  Filler
 )
 
 createRoot(document.getElementById('root')).render(

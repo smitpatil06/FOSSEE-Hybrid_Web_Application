@@ -57,10 +57,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# Allow React (Vite uses 5173, Create-React-App uses 3000)
+# Allow React (Vite uses 5173/5174+, Create-React-App uses 3000)
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "http://localhost:5174",
+    "http://127.0.0.1:5174",
+    "http://localhost:5175",
+    "http://127.0.0.1:5175",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -113,9 +117,9 @@ if os.environ.get('USE_POSTGRESQL', 'False') == 'True':
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'chemviz_db',
-            'USER': 'chemviz_user',
-            'PASSWORD': 'chemviz_password',
+            'NAME': 'chemlabwizard_db',
+            'USER': 'chemlabwizard_user',
+            'PASSWORD': 'chemlabwizard_password',
             'HOST': 'localhost',
             'PORT': '5432',
         }

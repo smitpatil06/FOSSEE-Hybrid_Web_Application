@@ -34,21 +34,34 @@ function Login({ onLoginSuccess }) {
                 onLoginSuccess(response.user);
             }
         } catch (err) {
-            setError(err.response?.data?.error || err.response?.data?.username || 'Authentication failed');
+            console.error('Auth error:', err);
+            if (err.response?.data?.error) {
+                setError(err.response.data.error);
+            } else if (err.response?.data?.username) {
+                setError(err.response.data.username);
+            } else if (err.response?.data?.password) {
+                setError(err.response.data.password);
+            } else if (err.response?.status === 401) {
+                setError('Invalid username or password');
+            } else if (err.code === 'ERR_NETWORK' || !err.response) {
+                setError('Cannot connect to server. Make sure the backend is running on http://127.0.0.1:8000');
+            } else {
+                setError(err.message || 'Authentication failed');
+            }
         } finally {
             setLoading(false);
         }
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-slate-100 flex items-center justify-center p-4">
+        <div className="min-h-screen bg-linear-to-br from-blue-50 to-slate-100 flex items-center justify-center p-4">
             <div className="max-w-md w-full">
                 {/* Logo and Title */}
                 <div className="text-center mb-8">
                     <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-full mb-4">
                         <span className="text-white text-2xl font-bold">C</span>
                     </div>
-                    <h1 className="text-3xl font-bold text-slate-800">ChemViz</h1>
+                    <h1 className="text-3xl font-bold text-slate-800">ChemLabWizard</h1>
                     <p className="text-slate-600 mt-2">Chemical Equipment Analytics</p>
                     <p className="text-sm text-slate-500 mt-1">FOSSEE Project</p>
                 </div>

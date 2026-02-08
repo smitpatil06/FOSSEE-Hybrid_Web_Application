@@ -9,7 +9,7 @@ class LoginWindow(QDialog):
         self.api_client = api_client
         self.user_data = None
         
-        self.setWindowTitle("ChemLabViz - Login")
+        self.setWindowTitle("ChemLabWizard - Login")
         self.setFixedSize(480, 480)
         self.setStyleSheet("""
             QDialog { 
@@ -86,7 +86,7 @@ class LoginWindow(QDialog):
         layout.setSpacing(12)
         
         # Logo/Title
-        title = QLabel("⚗️ ChemLabViz")
+        title = QLabel("⚗️ ChemLabWizard")
         title.setStyleSheet("font-size: 28px; font-weight: bold; color: #1e293b;")
         title.setAlignment(Qt.AlignCenter)
         layout.addWidget(title)

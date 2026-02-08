@@ -1,0 +1,132 @@
+.
+├── chemical_project
+│   ├── api
+│   │   ├── admin.py
+│   │   ├── apps.py
+│   │   ├── auth_views.py
+│   │   ├── __init__.py
+│   │   ├── migrations
+│   │   │   ├── 0001_initial.py
+│   │   │   ├── 0002_uploadbatch_uploaded_by.py
+│   │   │   ├── __init__.py
+│   │   │   └── __pycache__
+│   │   │       ├── 0001_initial.cpython-314.pyc
+│   │   │       ├── 0002_uploadbatch_uploaded_by.cpython-314.pyc
+│   │   │       └── __init__.cpython-314.pyc
+│   │   ├── models.py
+│   │   ├── __pycache__
+│   │   │   ├── admin.cpython-314.pyc
+│   │   │   ├── apps.cpython-314.pyc
+│   │   │   ├── auth_views.cpython-314.pyc
+│   │   │   ├── __init__.cpython-314.pyc
+│   │   │   ├── models.cpython-314.pyc
+│   │   │   ├── serializers.cpython-314.pyc
+│   │   │   ├── urls.cpython-314.pyc
+│   │   │   └── views.cpython-314.pyc
+│   │   ├── serializers.py
+│   │   ├── tests.py
+│   │   ├── urls.py
+│   │   └── views.py
+│   ├── chemical_project
+│   │   ├── asgi.py
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   │   ├── __init__.cpython-314.pyc
+│   │   │   ├── settings.cpython-314.pyc
+│   │   │   ├── urls.cpython-314.pyc
+│   │   │   └── wsgi.cpython-314.pyc
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   └── wsgi.py
+│   ├── db.sqlite3
+│   ├── manage.py
+│   └── requirements.txt
+├── Demo.mp4
+├── desktop-app.png
+├── desktop-login.png
+├── frontend-desktop
+│   ├── core
+│   │   ├── api_client.py
+│   │   └── __pycache__
+│   │       └── api_client.cpython-314.pyc
+│   ├── desktop_app.py
+│   ├── main.py
+│   ├── __pycache__
+│   │   ├── desktop_app.cpython-314.pyc
+│   │   └── main.cpython-314.pyc
+│   ├── requirements.txt
+│   └── ui
+│       ├── components
+│       │   ├── history_widget.py
+│       │   └── __pycache__
+│       │       └── history_widget.cpython-314.pyc
+│       └── views
+│           ├── charts_widget.py
+│           ├── __init__.py
+│           ├── login_window.py
+│           ├── __pycache__
+│           │   ├── charts_widget.cpython-314.pyc
+│           │   ├── __init__.cpython-314.pyc
+│           │   ├── login_window.cpython-314.pyc
+│           │   └── upload_window.cpython-314.pyc
+│           └── upload_window.py
+├── frontend-web
+│   ├── dist
+│   │   ├── assets
+│   │   │   ├── index-tPjdvPD6.css
+│   │   │   └── index-XJIgrxxJ.js
+│   │   ├── index.html
+│   │   └── vite.svg
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── node_modules
+│   │   ├── autoprefixer -> ../../../../node_modules/.pnpm/autoprefixer@10.4.23_postcss@8.5.6/node_modules/autoprefixer
+│   │   ├── axios -> ../../../../node_modules/.pnpm/axios@1.13.2/node_modules/axios
+│   │   ├── chart.js -> ../../../../node_modules/.pnpm/chart.js@4.5.1/node_modules/chart.js
+│   │   ├── @eslint
+│   │   │   └── js -> ../../../../../node_modules/.pnpm/@eslint+js@9.39.2/node_modules/@eslint/js
+│   │   ├── eslint -> ../../../../node_modules/.pnpm/eslint@9.39.2_jiti@2.6.1/node_modules/eslint
+│   │   ├── eslint-plugin-react-hooks -> ../../../../node_modules/.pnpm/eslint-plugin-react-hooks@7.0.1_eslint@9.39.2_jiti@2.6.1_/node_modules/eslint-plugin-react-hooks
+│   │   ├── eslint-plugin-react-refresh -> ../../../../node_modules/.pnpm/eslint-plugin-react-refresh@0.4.26_eslint@9.39.2_jiti@2.6.1_/node_modules/eslint-plugin-react-refresh
+│   │   ├── globals -> ../../../../node_modules/.pnpm/globals@16.5.0/node_modules/globals
+│   │   ├── postcss -> ../../../../node_modules/.pnpm/postcss@8.5.6/node_modules/postcss
+│   │   ├── react -> ../../../../node_modules/.pnpm/react@19.2.3/node_modules/react
+│   │   ├── react-chartjs-2 -> ../../../../node_modules/.pnpm/react-chartjs-2@5.3.1_chart.js@4.5.1_react@19.2.3/node_modules/react-chartjs-2
+│   │   ├── react-dom -> ../../../../node_modules/.pnpm/react-dom@19.2.3_react@19.2.3/node_modules/react-dom
+│   │   ├── @tailwindcss
+│   │   │   └── postcss -> ../../../../../node_modules/.pnpm/@tailwindcss+postcss@4.1.18/node_modules/@tailwindcss/postcss
+│   │   ├── tailwindcss -> ../../../../node_modules/.pnpm/tailwindcss@4.1.18/node_modules/tailwindcss
+│   │   ├── @types
+│   │   │   ├── react -> ../../../../../node_modules/.pnpm/@types+react@19.2.9/node_modules/@types/react
+│   │   │   └── react-dom -> ../../../../../node_modules/.pnpm/@types+react-dom@19.2.3_@types+react@19.2.9/node_modules/@types/react-dom
+│   │   ├── vite -> ../../../../node_modules/.pnpm/vite@7.3.1_jiti@2.6.1_lightningcss@1.30.2/node_modules/vite
+│   │   └── @vitejs
+│   │       └── plugin-react -> ../../../../../node_modules/.pnpm/@vitejs+plugin-react@5.1.2_vite@7.3.1_jiti@2.6.1_lightningcss@1.30.2_/node_modules/@vitejs/plugin-react
+│   ├── package.json
+│   ├── postcss.config.js
+│   ├── public
+│   │   └── vite.svg
+│   ├── src
+│   │   ├── api.js
+│   │   ├── App.css
+│   │   ├── App.jsx
+│   │   ├── assets
+│   │   │   └── react.svg
+│   │   ├── components
+│   │   │   ├── Charts.jsx
+│   │   │   └── History.jsx
+│   │   ├── index.css
+│   │   ├── main.jsx
+│   │   └── pages
+│   │       ├── Login.jsx
+│   │       └── Upload.jsx
+│   ├── tailwind.config.js
+│   └── vite.config.js
+├── i.txt
+├── large_equipment_data.csv
+├── README.md
+├── sample_equipment_data.csv
+├── web-app.png
+└── web-login.png
+
+48 directories, 82 files

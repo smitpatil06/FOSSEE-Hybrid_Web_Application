@@ -1,4 +1,4 @@
-# ChemLabViz — Chemical Equipment Parameter Visualizer
+# ChemLabWizard — Chemical Equipment Parameter Visualizer
 
 > **FOSSEE Web-Hybrid Application | Internship Submission**
 
@@ -27,7 +27,7 @@ A sophisticated hybrid application featuring independent Web and Desktop fronten
 
 ## 🎯 Overview
 
-**ChemLabViz** is a comprehensive data analysis platform designed for chemical equipment parameter visualization and reporting. Users can upload CSV files containing equipment operational data and receive:
+**ChemLabWizard** is a comprehensive data analysis platform designed for chemical equipment parameter visualization and reporting. Users can upload CSV files containing equipment operational data and receive:
 
 - **Real-time visualization** via interactive charts (Bar & Pie)
 - **Statistical analysis** with automated calculations
@@ -38,7 +38,7 @@ A sophisticated hybrid application featuring independent Web and Desktop fronten
 
 ### Problem Solved
 
-Chemical facilities generate vast amounts of equipment parameter data (flowrate, pressure, temperature). Without proper visualization tools, this data becomes difficult to analyze and report. ChemLabViz provides an intuitive interface for data scientists and facility managers to:
+Chemical facilities generate vast amounts of equipment parameter data (flowrate, pressure, temperature). Without proper visualization tools, this data becomes difficult to analyze and report. ChemLabWizard provides an intuitive interface for data scientists and facility managers to:
 1. Upload operational data in CSV format
 2. Instantly visualize equipment distribution and performance metrics
 3. Generate professional PDF reports for stakeholders
@@ -227,7 +227,7 @@ npm run dev
 *Open a new terminal window*
 
 ```bash
-cd /path/to/Web-app/desktop
+cd /path/to/Web-app/frontend-desktop
 
 # Activate backend virtual environment
 source ../chemical_project/venv/bin/activate
@@ -238,7 +238,7 @@ pip install PyQt5==5.15.11 \
     requests==2.32.3
 
 # Run desktop application
-python main.py
+python desktop_app.py
 ```
 
 ### Optional: PostgreSQL Setup (Linux)
@@ -336,7 +336,7 @@ npm run dev
 *Open a new PowerShell window*
 
 ```powershell
-cd C:\path\to\Web-app\desktop
+cd C:\path\to\Web-app\frontend-desktop
 
 # Activate backend virtual environment
 ..\chemical_project\venv\Scripts\Activate.ps1
@@ -347,7 +347,7 @@ pip install PyQt5==5.15.11 `
     requests==2.32.3
 
 # Run desktop application
-python main.py
+python desktop_app.py
 ```
 
 ### Optional: PostgreSQL Setup (Windows)
@@ -369,7 +369,7 @@ python main.py
 ## 🏗️ Project Architecture
 
 ```
-ChemLabViz/
+ChemLabWizard/
 │
 ├── 📁 chemical_project/          [Django REST Backend]
 │   ├── api/
@@ -413,8 +413,8 @@ ChemLabViz/
 │   ├── tailwind.config.js        # TailwindCSS configuration
 │   └── postcss.config.js         # PostCSS configuration
 │
-├── 📁 desktop/                   [PyQt5 Desktop Client]
-│   ├── main.py                   # Application entry point
+├── 📁 frontend-desktop/          [PyQt5 Desktop Client]
+│   ├── desktop_app.py            # Application entry point
 │   │
 │   ├── core/
 │   │   └── api_client.py         # HTTP requests handler (session mgmt, endpoints)
@@ -425,8 +425,7 @@ ChemLabViz/
 │   │   │   └── upload_window.py  # Main application window (tabs: upload, history, charts)
 │   │   │
 │   │   └── components/
-│   │       ├── history_widget.py # History list with delete functionality
-│   │       └── charts_widget.py  # Matplotlib chart rendering
+│   │       └── history_widget.py # History list with delete functionality
 │   │
 │   └── requirements.txt          # pip dependencies
 │
@@ -593,7 +592,7 @@ Browser: Download or open PDF
 
 1. **Start Application:**
    ```bash
-   python main.py
+   python desktop_app.py
    ```
 
 2. **Login:**
@@ -957,7 +956,7 @@ source ../chemical_project/venv/bin/activate
 pip install PyQt5 matplotlib requests
 
 # Run application
-python main.py
+python desktop_app.py
 ```
 
 ---
@@ -981,7 +980,7 @@ python main.py
 
 ### Desktop Application
 
-1. Run `python main.py` from `frontend-desktop/`
+1. Run `python desktop_app.py` from `frontend-desktop/`
 2. Login with same credentials as web
 3. Upload CSV file
 4. View Matplotlib charts and statistics
@@ -1010,12 +1009,15 @@ Web-app/
 │   └── package.json
 │
 ├── frontend-desktop/         # PyQt5 Frontend
-│   ├── main.py              # Entry point
-│   ├── login_window.py      # Authentication
-│   ├── upload_window.py     # Main window
-│   ├── api_client.py        # HTTP client
-│   ├── history_widget.py    # History view
-│   └── charts_widget.py     # Matplotlib charts
+│   ├── desktop_app.py       # Entry point
+│   ├── core/
+│   │   └── api_client.py    # HTTP client
+│   └── ui/
+│       ├── views/
+│       │   ├── login_window.py      # Authentication
+│       │   └── upload_window.py     # Main window
+│       └── components/
+│           └── history_widget.py    # History view
 │
 └── sample_equipment_data.csv # Sample data
 ```
@@ -1052,7 +1054,7 @@ python manage.py migrate
 ```bash
 cd chemical_project
 chmod +x setup_postgres.sh
-./setup_postgres.sh  # Creates chemviz_db database
+./setup_postgres.sh  # Creates chemlabwizard_db database
 
 pip install psycopg2-binary
 python manage.py migrate
@@ -1077,7 +1079,7 @@ npm run dev
 # Terminal 3 - Desktop Frontend
 cd frontend-desktop
 source ../chemical_project/venv/bin/activate
-python main.py
+python desktop_app.py
 ```
 
 Test with `sample_equipment_data.csv` containing sample chemical equipment data.

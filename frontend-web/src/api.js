@@ -108,15 +108,19 @@ export const data = {
         return response.data;
     },
     
-    downloadReport: async (batchId, filename) => {
+    downloadReport: async (batchId, filename, chartConfig = []) => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get(`${API_URL}/report/${batchId}/`, {
-                headers: {
-                    'Authorization': `Token ${token}`
-                },
-                responseType: 'blob',
-            });
+            const response = await axios.post(
+                `${API_URL}/report/${batchId}/`,
+                { chart_config: chartConfig },
+                {
+                    headers: {
+                        'Authorization': `Token ${token}`
+                    },
+                    responseType: 'blob',
+                }
+            );
             
             // Create a blob URL and trigger download
             const blob = new Blob([response.data], { type: 'application/pdf' });

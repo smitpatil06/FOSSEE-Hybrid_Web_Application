@@ -7,6 +7,9 @@ function Upload({ user, onLogout }) {
     const [history, setHistory] = useState([]);
     const [selectedData, setSelectedData] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [pdfLoading, setPdfLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const [chartConfig, setChartConfig] = useState([]);
 
     useEffect(() => {
         fetchHistory();
@@ -14,13 +17,18 @@ function Upload({ user, onLogout }) {
 
     const fetchHistory = async () => {
         try {
+            console.log('Fetching history...');
             const res = await dataAPI.getHistory();
+            console.log('History fetched:', res);
             setHistory(res);
+            setError(null);
             if (res.length > 0) {
+                console.log('Loading first batch:', res[0].id);
                 handleLoadBatch(res[0].id);
             }
         } catch (err) {
             console.error('Error fetching history:', err);
+            setError('Failed to load history');
         }
     };
 
@@ -42,10 +50,14 @@ function Upload({ user, onLogout }) {
     const handleLoadBatch = async (id) => {
         setLoading(true);
         try {
+            console.log('Loading batch:', id);
             const res = await dataAPI.getSummary(id);
+            console.log('Batch loaded:', res);
             setSelectedData(res);
+            setError(null);
         } catch (error) {
             console.error('Error loading batch:', error);
+            setError('Failed to load dataset: ' + (error.message || 'Unknown error'));
             alert('Failed to load dataset');
         }
         setLoading(false);
@@ -73,12 +85,15 @@ function Upload({ user, onLogout }) {
     };
 
     const handleDownloadReport = async () => {
-        if (!selectedData) return;
+        if (!selectedData || pdfLoading) return;
+        setPdfLoading(true);
         try {
-            await dataAPI.downloadReport(selectedData.id, selectedData.filename);
+            await dataAPI.downloadReport(selectedData.id, selectedData.filename, chartConfig);
         } catch (error) {
             console.error('Download error:', error);
             alert(error.message || 'Failed to download PDF report');
+        } finally {
+            setPdfLoading(false);
         }
     };
 
@@ -91,7 +106,7 @@ function Upload({ user, onLogout }) {
                         <div className="flex items-center gap-3">
                             <div className="h-8 w-8 bg-blue-500 rounded-full flex items-center justify-center font-bold text-xs">C</div>
                             <div>
-                                <span className="font-bold text-xl tracking-tight">ChemViz</span>
+                                <span className="font-bold text-xl tracking-tight">ChemLabWizard</span>
                                 <span className="ml-2 text-xs bg-blue-700 px-2 py-0.5 rounded text-blue-100">FOSSEE</span>
                             </div>
                         </div>
@@ -139,6 +154,12 @@ function Upload({ user, onLogout }) {
 
                 {/* Main Dashboard */}
                 <main className="flex-1 overflow-y-auto bg-gray-50 p-8">
+                    {error && (
+                        <div className="mb-4 p-4 bg-red-50 border border-red-200 text-red-600 rounded-lg">
+                            {error}
+                        </div>
+                    )}
+
                     {loading && (
                         <div className="text-center py-10 text-blue-600 font-medium animate-pulse">
                             Processing Analytical Data...
@@ -155,12 +176,13 @@ function Upload({ user, onLogout }) {
                                 </div>
                                 <button 
                                     onClick={handleDownloadReport}
-                                    className="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-md shadow-sm transition-colors"
+                                    disabled={pdfLoading}
+                                    className="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 disabled:bg-red-400 text-white text-sm font-medium rounded-md shadow-sm transition-colors"
                                 >
-                                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg className={`w-4 h-4 mr-2 ${pdfLoading ? 'animate-spin' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                                     </svg>
-                                    Download PDF Report
+                                    {pdfLoading ? 'Generating...' : 'Download PDF Report'}
                                 </button>
                             </header>
 
@@ -172,7 +194,7 @@ function Upload({ user, onLogout }) {
                             </div>
 
                             {/* Visualization */}
-                            <Charts data={selectedData} />
+                            <Charts data={selectedData} onConfigChange={setChartConfig} />
 
                             {/* Data Table */}
                             <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
@@ -218,7 +240,7 @@ function Upload({ user, onLogout }) {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
                                 </svg>
                             </div>
-                            <h2 className="text-2xl font-bold text-gray-800">Welcome to ChemViz</h2>
+                            <h2 className="text-2xl font-bold text-gray-800">Welcome to ChemLabWizard</h2>
                             <p className="text-gray-500 max-w-md">
                                 Upload a CSV file containing equipment parameters to generate visualizations and PDF reports.
                             </p>
@@ -233,7 +255,7 @@ function Upload({ user, onLogout }) {
             
             {/* Footer */}
             <footer className="bg-white border-t border-gray-200 py-3 text-center text-xs text-gray-400">
-                <p>&copy; 2026 ChemViz Analytics. Developed for FOSSEE Screening Task.</p>
+                <p>&copy; 2026 ChemLabWizard Analytics. Developed for FOSSEE Screening Task.</p>
             </footer>
         </div>
     );

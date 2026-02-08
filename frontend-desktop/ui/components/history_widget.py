@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLabel, QListWidget, QListWidgetItem, QMessageBox
+from PyQt5.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLabel, QListWidget, QListWidgetItem, QMessageBox, QToolButton, QStyle
 from PyQt5.QtCore import Qt, pyqtSignal
 
 class HistoryWidget(QWidget):
@@ -49,29 +49,27 @@ class HistoryWidget(QWidget):
         self.list_widget.setStyleSheet("""
             QListWidget {
                 border: 1px solid #e2e8f0; 
-                border-radius: 5px; 
-                background-color: white;
+                border-radius: 6px; 
+                background-color: #ffffff;
                 font-size: 12px;
             }
             QListWidget::item {
-                padding: 8px;
+                padding: 6px;
                 border-bottom: 1px solid #f1f5f9;
             }
             QListWidget::item:selected {
-                background-color: #dbeafe;
-                color: #1e40af;
+                background-color: #e0f2fe;
+                color: #0f172a;
             }
             QListWidget::item:hover {
-                background-color: #f1f5f9;
+                background-color: #f8fafc;
             }
         """)
         self.list_widget.itemClicked.connect(self.on_item_clicked)
-        self.list_widget.setContextMenuPolicy(Qt.CustomContextMenu)
-        self.list_widget.customContextMenuRequested.connect(self.on_right_click)
         layout.addWidget(self.list_widget)
         
         # Delete instructions label
-        help_label = QLabel("Right-click to delete dataset")
+        help_label = QLabel("Click trash icon to delete")
         help_label.setStyleSheet("font-size: 10px; color: #94a3b8; italic; margin-top: 5px;")
         help_label.setAlignment(Qt.AlignCenter)
         layout.addWidget(help_label)
@@ -89,27 +87,40 @@ class HistoryWidget(QWidget):
                 uploaded_at = item['uploaded_at']
                 uploaded_by = item.get('uploaded_by', {}).get('username', 'Unknown')
 
-                # Create list item container widget (label + delete button)
+                # Create list item container widget (filename + delete icon)
                 container = QWidget()
-                container_layout = QHBoxLayout()
-                container_layout.setContentsMargins(6, 6, 6, 6)
+                container_layout = QHBoxLayout(container)
+                container_layout.setContentsMargins(8, 6, 8, 6)
                 container_layout.setSpacing(8)
 
-                label = QLabel(f"📊 {filename}\n{uploaded_at}\nBy: {uploaded_by}")
-                label.setStyleSheet("font-size: 12px;")
+                label = QLabel(filename)
+                label.setStyleSheet("font-size: 12px; font-weight: 600; color: #0f172a;")
                 label.setWordWrap(True)
 
-                del_btn = QPushButton("Delete")
-                del_btn.setFixedSize(64, 26)
-                del_btn.setStyleSheet("background-color: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; border-radius: 4px;")
+                meta = QLabel(f"{uploaded_at} • {uploaded_by}")
+                meta.setStyleSheet("font-size: 10px; color: #64748b;")
+
+                text_box = QWidget()
+                text_layout = QVBoxLayout(text_box)
+                text_layout.setContentsMargins(0, 0, 0, 0)
+                text_layout.setSpacing(2)
+                text_layout.addWidget(label)
+                text_layout.addWidget(meta)
+
+                del_btn = QToolButton()
+                del_btn.setIcon(self.style().standardIcon(QStyle.SP_TrashIcon))
+                del_btn.setToolTip("Delete dataset")
+                del_btn.setFixedSize(26, 26)
+                del_btn.setStyleSheet(
+                    "QToolButton { background-color: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; border-radius: 4px; }"
+                    "QToolButton:hover { background-color: #fecaca; }"
+                )
                 del_btn.setCursor(Qt.PointingHandCursor)
-                # connect with batch_id using lambda default arg
                 del_btn.clicked.connect(lambda _, b=batch_id, f=filename: self._confirm_and_delete(b, f))
 
-                container_layout.addWidget(label)
+                container_layout.addWidget(text_box)
                 container_layout.addStretch()
                 container_layout.addWidget(del_btn)
-                container.setLayout(container_layout)
 
                 list_item = QListWidgetItem()
                 list_item.setData(Qt.UserRole, batch_id)
@@ -132,24 +143,6 @@ class HistoryWidget(QWidget):
         batch_id = item.data(Qt.UserRole)
         self.batch_selected.emit(batch_id)
     
-    def on_right_click(self, pos):
-        """Handle right-click for delete option"""
-        item = self.list_widget.itemAt(pos)
-        if item:
-            batch_id = item.data(Qt.UserRole)
-            filename = item.text().replace("📊 ", "")
-            
-            reply = QMessageBox.question(
-                self,
-                "Delete Dataset",
-                f"Delete '{filename}'?\nThis action cannot be undone.",
-                QMessageBox.Yes | QMessageBox.No,
-                QMessageBox.No
-            )
-            
-            if reply == QMessageBox.Yes:
-                self.delete_batch(batch_id)
-
     def _confirm_and_delete(self, batch_id, filename):
         """Helper connected to visible Delete buttons"""
         reply = QMessageBox.question(
