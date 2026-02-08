@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Bar, Line, Pie, Doughnut, Radar, PolarArea, Scatter } from 'react-chartjs-2';
-import { Settings, X, Plus, TrendingUp, BarChart3, PieChart, Activity, Target, Edit3 } from 'lucide-react';
+import { X, Plus, TrendingUp, BarChart3, PieChart, Activity, Target, Edit3 } from 'lucide-react';
 
 // Professional color palettes
 const COLOR_THEMES = {

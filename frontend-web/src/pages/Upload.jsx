@@ -17,13 +17,10 @@ function Upload({ user, onLogout }) {
 
     const fetchHistory = async () => {
         try {
-            console.log('Fetching history...');
             const res = await dataAPI.getHistory();
-            console.log('History fetched:', res);
             setHistory(res);
             setError(null);
             if (res.length > 0) {
-                console.log('Loading first batch:', res[0].id);
                 handleLoadBatch(res[0].id);
             }
         } catch (err) {
@@ -50,9 +47,7 @@ function Upload({ user, onLogout }) {
     const handleLoadBatch = async (id) => {
         setLoading(true);
         try {
-            console.log('Loading batch:', id);
             const res = await dataAPI.getSummary(id);
-            console.log('Batch loaded:', res);
             setSelectedData(res);
             setError(null);
         } catch (error) {

@@ -1,6 +1,4 @@
-import os
 import json
-import matplotlib
 from PyQt5.QtGui import QFont
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import (
@@ -29,9 +27,6 @@ from ui.views.charts_widget import ChartWidget
 class UploadWindow(QMainWindow):
     def __init__(self, api_client, user_data, parent=None):
         super().__init__(parent)
-        qt_platform = os.environ.get("QT_QPA_PLATFORM", "(default)")
-        print(f"[Diag] QT_QPA_PLATFORM={qt_platform}")
-        print(f"[Diag] Matplotlib backend={matplotlib.get_backend()}")
         self.settings = QSettings("ChemLabWizard", "DesktopClient")
         self.api_client = api_client
         self.user_data = user_data
