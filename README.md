@@ -192,46 +192,6 @@ python manage.py migrate
 
 ---
 
-# Activate virtual environment
-.\venv\Scripts\Activate.ps1
-
-# If you get execution policy error, run:
-# Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-
-# Upgrade pip
-python -m pip install --upgrade pip
-
-# Install backend dependencies
-pip install django==6.0.1 `
-    djangorestframework==3.16.1 `
-    django-cors-headers==4.9.0 `
-    pandas==3.0.0 `
-    matplotlib==3.10.8 `
-    reportlab==4.4.9 `
-    pillow==12.1.0 `
-    requests==2.32.3
-
-# Configure environment (SQLite by default)
-$env:USE_SQLITE = 'True'
-
-# Run database migrations
-python manage.py makemigrations
-python manage.py migrate
-
-# Create superuser account
-python manage.py createsuperuser
-
-# Start development server
-python manage.py runserver
-```
-
-**Expected Output:**
-```
-Starting development server at http://127.0.0.1:8000/
-```
-
-### Step 2: Web Frontend Setup
-
 ## 📁 Project Structure
 
 ```
