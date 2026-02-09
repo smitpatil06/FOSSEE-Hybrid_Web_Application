@@ -395,7 +395,7 @@ class GeneratePDFView(APIView):
 
                 def showPage(self):
                     self._saved_page_states.append(dict(self.__dict__))
-                    super().showPage()
+                    self._startPage()
 
                 def save(self):
                     total_pages = len(self._saved_page_states)
