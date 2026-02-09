@@ -2,7 +2,7 @@
 
 > **FOSSEE Web-Hybrid Application | Internship Submission**
 
-A sophisticated hybrid application featuring independent Web and Desktop frontends seamlessly integrated with a Django REST API backend for comprehensive visualization and analysis of chemical equipment operational data.
+A hybrid application featuring independent Web (React) and Desktop (PyQt5) frontends integrated with a Django REST API backend for visualization and analysis of chemical equipment operational data.
 
 ---
 
@@ -12,266 +12,290 @@ A sophisticated hybrid application featuring independent Web and Desktop fronten
 - [Screenshots](#-screenshots)
 - [Features](#-features)
 - [Technology Stack](#-technology-stack)
-- [System Requirements](#-system-requirements)
 - [Installation](#-installation)
-  - [Linux Installation](#linux-installation)
-  - [Windows Installation](#windows-installation)
-- [Project Architecture](#-project-architecture)
+- [Project Structure](#-project-structure)
+- [API Endpoints](#-api-endpoints)
 - [Database Configuration](#-database-configuration)
 - [Troubleshooting](#-troubleshooting)
-- [Demo & Submission](#-demo--submission)
 - [Author](#-author)
 - [License](#-license)
-- [Acknowledgments](#-acknowledgments)
-- [Support](#-support)
 
 ---
 
 ## 🎯 Overview
 
-**ChemLabWizard** is a comprehensive data analysis platform designed for chemical equipment parameter visualization and reporting. Users can upload CSV files containing equipment operational data and receive:
+**ChemLabWizard** is a data analysis platform for chemical equipment parameter visualization and reporting. Users upload CSV files containing equipment operational data (flowrate, pressure, temperature) and receive:
 
-- **Real-time visualization** via interactive charts (Bar & Pie)
-- **Statistical analysis** with automated calculations
-- **Historical data management** with per-user isolation
-- **Professional reports** in PDF format with embedded visualizations
-- **Multi-platform access** through Web and Desktop clients
-- **Secure authentication** with token-based authorization
-
-### Problem Solved
-
-Chemical facilities generate vast amounts of equipment parameter data (flowrate, pressure, temperature). Without proper visualization tools, this data becomes difficult to analyze and report. ChemLabWizard provides an intuitive interface for data scientists and facility managers to:
-1. Upload operational data in CSV format
-2. Instantly visualize equipment distribution and performance metrics
-3. Generate professional PDF reports for stakeholders
-4. Maintain secure per-user data audit trails
+- Real-time visualization via interactive charts (Bar & Pie)
+- Statistical analysis with automated calculations
+- Historical data management with per-user isolation (last 5 datasets)
+- PDF reports with embedded visualizations
+- Multi-platform access (Web and Desktop)
+- Secure token-based authentication
 
 ---
 
 ## 📸 Screenshots
 
-### Desktop Application
-
-![Desktop Application](desktop-app.png)
-
-> **⚠️ Important:** Some UI features may not be visible in this screenshot as I am using Arch-based Linux (EndeavourOS) with a custom Desktop Environment (DWM).
-
-### Desktop Login
-
-![Desktop Login](desktop-login.png)
-
-### Web Application
-
-![Web Application](web-app.png)
-
-### Web Login
-
-![Web Login](web-login.png)
+| Platform | Screenshot |
+|----------|------------|
+| **Web Application** | ![Web Application](web-app.png) |
+| **Web Login** | ![Web Login](web-login.png) |
+| **Desktop Application** | ![Desktop Application](desktop-app.png) |
+| **Desktop Login** | ![Desktop Login](desktop-login.png) |
 
 ---
 
 ## ✨ Features
 
-| Category | Feature | Status |
-|----------|---------|--------|
-| **Data Input** | CSV file upload (Web & Desktop) | ✅ Complete |
-| | Drag-and-drop file upload (Web) | ✅ Complete |
-| | Sample data included | ✅ Complete |
-| **Visualization** | Bar charts (equipment type distribution) | ✅ Complete |
-| | Pie charts (percentage breakdown) | ✅ Complete |
-| | Responsive chart sizing | ✅ Complete |
-| **Analytics** | Count statistics | ✅ Complete |
-| | Average calculations (flowrate, pressure) | ✅ Complete |
-| | Type distribution analysis | ✅ Complete |
-| **User Management** | User registration | ✅ Complete |
-| | Secure login (Token-based) | ✅ Complete |
-| | Per-user data isolation | ✅ Complete |
-| | Session management | ✅ Complete |
-| **History & Reports** | Upload history (last 5 datasets per user) | ✅ Complete |
-| | Delete dataset from history | ✅ Complete |
-| | PDF report generation | ✅ Complete |
-| | Embedded charts in PDF | ✅ Complete |
-| **Cross-Platform** | Web frontend (React) | ✅ Complete |
-| | Desktop frontend (PyQt5) | ✅ Complete |
-| | API backend (Django) | ✅ Complete |
-| | Real-time synchronization | ✅ Complete |
+- ✅ CSV file upload with drag-and-drop (Web)
+- ✅ Bar and Pie chart visualizations
+- ✅ Statistical analysis (count, average flowrate, average pressure, type distribution)
+- ✅ User registration and token-based authentication
+- ✅ Per-user data isolation
+- ✅ Upload history (last 5 datasets per user with auto-delete)
+- ✅ PDF report generation with embedded charts
+- ✅ Cross-platform (Web React + Desktop PyQt5)
+- ✅ Sample data included (`sample_equipment_data.csv`)
 
 ---
 
 ## 🛠️ Technology Stack
 
-### Frontend (Web)
+### 🌐 Frontend Technologies
 
-| Technology | Version | Purpose | Icon |
-|-----------|---------|---------|------|
-| React ⚛️ | 19.2.0 | UI framework with modern hooks | ![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black) |
-| Vite ⚡ | 7.2.4 | Lightning-fast build tool | ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white) |
-| Chart.js 📊 | 4.5.1 | Interactive chart library | ![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?style=flat&logo=chartdotjs&logoColor=white) |
-| react-chartjs-2 | 5.3.1 | React wrapper for Chart.js | ![React](https://img.shields.io/badge/React_Chart-61DAFB?style=flat&logo=react&logoColor=black) |
-| TailwindCSS 🎨 | 4.1.18 | Utility-first CSS framework | ![TailwindCSS](https://img.shields.io/badge/Tailwind-06B6D4?style=flat&logo=tailwindcss&logoColor=white) |
-| Axios 🌐 | 1.13.2 | HTTP client with interceptors | ![Axios](https://img.shields.io/badge/Axios-5A29E4?style=flat&logo=axios&logoColor=white) |
+| Technology | Version | Description | Official Link |
+|------------|---------|-------------|---------------|
+| [![React](https://img.shields.io/badge/React-19.2.0-61DAFB?style=flat&logo=react&logoColor=white)](https://react.dev/) | 19.2.0 | UI framework for web application | [React Docs →](https://react.dev/) |
+| [![Vite](https://img.shields.io/badge/Vite-7.2.4-646CFF?style=flat&logo=vite&logoColor=white)](https://vite.dev/) | 7.2.4 | Fast build tool and dev server | [Vite Docs →](https://vite.dev/) |
+| [![Chart.js](https://img.shields.io/badge/Chart.js-4.5.1-FF6384?style=flat&logo=chartdotjs&logoColor=white)](https://www.chartjs.org/) | 4.5.1 | Data visualization library | [Chart.js Docs →](https://www.chartjs.org/) |
+| [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.1.18-06B6D4?style=flat&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/) | 4.1.18 | Utility-first CSS framework | [Tailwind Docs →](https://tailwindcss.com/) |
+| [![Axios](https://img.shields.io/badge/Axios-1.13.2-5A29E4?style=flat&logo=axios&logoColor=white)](https://axios-http.com/) | 1.13.2 | Promise-based HTTP client | [Axios Docs →](https://axios-http.com/) |
+| [![PyQt5](https://img.shields.io/badge/PyQt5-5.15.11-41CD52?style=flat&logo=qt&logoColor=white)](https://www.riverbankcomputing.com/software/pyqt/) | 5.15.11 | Cross-platform GUI framework (Desktop) | [PyQt5 Docs →](https://www.riverbankcomputing.com/software/pyqt/) |
 
-### Backend (Django)
+### 🔧 Backend Technologies
 
-| Technology | Version | Purpose | Icon |
-|-----------|---------|---------|------|
-| Django 🎸 | 6.0.1 | Web framework | ![Django](https://img.shields.io/badge/Django-092E20?style=flat&logo=django&logoColor=white) |
-| Django REST Framework 🔌 | 3.16.1 | REST API toolkit | ![DRF](https://img.shields.io/badge/DRF-A30000?style=flat&logo=django&logoColor=white) |
-| django-cors-headers 🔐 | 4.9.0 | Cross-Origin Resource Sharing | ![CORS](https://img.shields.io/badge/CORS-092E20?style=flat&logo=django&logoColor=white) |
-| Pandas 🐼 | 3.0.0 | Data processing & CSV parsing | ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white) |
-| NumPy 🔢 | 2.4.1 | Numerical computing | ![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat&logo=numpy&logoColor=white) |
-| Matplotlib 📈 | 3.10.8 | Chart generation (server-side) | ![Matplotlib](https://img.shields.io/badge/Matplotlib-11557c?style=flat&logo=python&logoColor=white) |
-| ReportLab 📄 | 4.4.9 | PDF generation | ![ReportLab](https://img.shields.io/badge/ReportLab-8B0000?style=flat&logo=adobe&logoColor=white) |
-| Pillow 🖼️ | 12.1.0 | Image processing | ![Pillow](https://img.shields.io/badge/Pillow-3776AB?style=flat&logo=python&logoColor=white) |
+| Technology | Version | Description | Official Link |
+|------------|---------|-------------|---------------|
+| [![Django](https://img.shields.io/badge/Django-6.0.1-092E20?style=flat&logo=django&logoColor=white)](https://www.djangoproject.com/) | 6.0.1 | High-level Python web framework | [Django Docs →](https://www.djangoproject.com/) |
+| [![DRF](https://img.shields.io/badge/Django_REST-3.16.1-A30000?style=flat&logo=django&logoColor=white)](https://www.django-rest-framework.org/) | 3.16.1 | Powerful REST API toolkit | [DRF Docs →](https://www.django-rest-framework.org/) |
+| [![Pandas](https://img.shields.io/badge/Pandas-3.0.0-150458?style=flat&logo=pandas&logoColor=white)](https://pandas.pydata.org/) | 3.0.0 | Data manipulation and analysis | [Pandas Docs →](https://pandas.pydata.org/) |
+| [![NumPy](https://img.shields.io/badge/NumPy-2.4.1-013243?style=flat&logo=numpy&logoColor=white)](https://numpy.org/) | 2.4.1 | Numerical computing library | [NumPy Docs →](https://numpy.org/) |
+| [![Matplotlib](https://img.shields.io/badge/Matplotlib-3.10.8-11557c?style=flat&logo=python&logoColor=white)](https://matplotlib.org/) | 3.10.8 | Plotting and visualization | [Matplotlib Docs →](https://matplotlib.org/) |
+| [![ReportLab](https://img.shields.io/badge/ReportLab-4.4.9-FF6B35?style=flat&logo=python&logoColor=white)](https://www.reportlab.com/) | 4.4.9 | PDF generation toolkit | [ReportLab Docs →](https://www.reportlab.com/) |
+| [![CORS](https://img.shields.io/badge/CORS_Headers-4.9.0-092E20?style=flat&logo=django&logoColor=white)](https://github.com/adamchainz/django-cors-headers) | 4.9.0 | Cross-Origin Resource Sharing | [CORS Docs →](https://github.com/adamchainz/django-cors-headers) |
 
-### Frontend (Desktop)
+### 🗄️ Database & Tools
 
-| Technology | Version | Purpose | Icon |
-|-----------|---------|---------|------|
-| Python 🐍 | 3.14 | Programming language | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white) |
-| PyQt5 🖥️ | 5.15.11 | Cross-platform GUI framework | ![Qt](https://img.shields.io/badge/Qt-41CD52?style=flat&logo=qt&logoColor=white) |
-| Matplotlib 📊 | 3.10.8 | Data visualization | ![Matplotlib](https://img.shields.io/badge/Matplotlib-11557c?style=flat&logo=python&logoColor=white) |
-| Requests 🌍 | 2.32.3 | HTTP library | ![Requests](https://img.shields.io/badge/Requests-3776AB?style=flat&logo=python&logoColor=white) |
-
-### Database & Tools
-
-| Technology | Version | Purpose | Icon |
-|-----------|---------|---------|------|
-| SQLite 🗄️ | 3.0+ | Default embedded database | ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white) |
-| PostgreSQL 🐘 | 12+ | Optional relational database | ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white) |
-| Git 📝 | 2.0+ | Version control | ![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white) |
-| VS Code 💻 | 1.95+ | Development environment | ![VSCode](https://img.shields.io/badge/VS_Code-007ACC?style=flat&logo=visualstudiocode&logoColor=white) |
-
----
-
-## 📦 System Requirements
-
-### Common Requirements
-- **Python:** 3.10 or higher
-- **Git:** Latest version
-- **RAM:** 2GB minimum (4GB recommended)
-- **Storage:** 500MB available space
-- **Internet:** Required for package installation
-
-### Linux-Specific
-- **OS:** Ubuntu 20.04+ / Fedora 35+ / Arch Linux
-- **Package Manager:** apt/dnf/pacman
-- **Compiler:** GCC/Clang for building Python packages
-
-### Windows-Specific
-- **OS:** Windows 10 or higher
-- **Powershell:** 5.0+ or use Command Prompt
-- **Visual C++:** Build tools (optional, some packages may need it)
-- **.NET Framework:** 4.5+ (for certain dependencies)
-
-### macOS-Specific
-- **OS:** macOS 10.14 or higher
-- **Xcode Command Line Tools:** Required
-- **Homebrew:** Recommended package manager
+| Technology | Version | Description | Official Link |
+|------------|---------|-------------|---------------|
+| [![SQLite](https://img.shields.io/badge/SQLite-3.0+-003B57?style=flat&logo=sqlite&logoColor=white)](https://www.sqlite.org/) | 3.0+ | Embedded SQL database (default) | [SQLite Docs →](https://www.sqlite.org/) |
+| [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-12+-4169E1?style=flat&logo=postgresql&logoColor=white)](https://www.postgresql.org/) | 12+ | Advanced relational database (optional) | [PostgreSQL Docs →](https://www.postgresql.org/) |
+| [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/) | 3.10+ | Core programming language | [Python Docs →](https://www.python.org/) |
+| [![Requests](https://img.shields.io/badge/Requests-2.32.3-2C5BB4?style=flat&logo=python&logoColor=white)](https://requests.readthedocs.io/) | 2.32.3 | HTTP library for Python | [Requests Docs →](https://requests.readthedocs.io/) |
+| [![Pillow](https://img.shields.io/badge/Pillow-12.1.0-FFD43B?style=flat&logo=python&logoColor=black)](https://pillow.readthedocs.io/) | 12.1.0 | Python Imaging Library | [Pillow Docs →](https://pillow.readthedocs.io/) |
 
 ---
 
 ## 🚀 Installation
 
-### Clone Repository (All Platforms)
+### Prerequisites
+- **Python** 3.10 or higher
+- **Node.js** 18+ and npm/pnpm (for web frontend)
+- **Git** (for cloning repository)
+
+### 🪟 Windows Installation
+
+#### Step 1: Install Prerequisites
+
+```powershell
+# Install Python 3.10+ from https://www.python.org/downloads/
+# Install Node.js 18+ from https://nodejs.org/
+
+# Verify installations
+python --version
+node --version
+npm --version
+```
+
+#### Step 2: Clone Repository
+
+```powershell
+git clone https://github.com/smitpatil06/FOSSEE-Hybrid_Web_Application.git
+cd FOSSEE-Hybrid_Web_Application
+```
+
+#### Step 3: Backend Setup
+
+```powershell
+cd chemical_project
+
+# Create and activate virtual environment
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+
+# Install dependencies
+pip install django==6.0.1 djangorestframework==3.16.1 django-cors-headers==4.9.0 pandas==3.0.0 matplotlib==3.10.8 reportlab==4.4.9 pillow==12.1.0 requests==2.32.3
+
+# Setup database (SQLite by default)
+$env:USE_SQLITE = 'True'
+
+# Run migrations
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+
+# Start backend server
+python manage.py runserver
+```
+
+Backend runs at: **http://localhost:8000**
+
+#### Step 4: Web Frontend Setup
+
+*Open a new PowerShell terminal*
+
+```powershell
+cd frontend-web
+
+# Install dependencies (using npm or pnpm)
+npm install
+# OR
+pnpm install
+
+# Start development server
+npm run dev
+# OR
+pnpm run dev
+```
+
+Web app runs at: **http://localhost:5173**
+
+#### Step 5: Desktop Frontend Setup
+
+*Open a new PowerShell terminal*
+
+```powershell
+cd frontend-desktop
+
+# Activate backend virtual environment
+..\chemical_project\venv\Scripts\Activate.ps1
+
+# Install dependencies
+pip install PyQt5==5.15.11 matplotlib==3.10.8 requests==2.32.3
+
+# Run desktop application
+python desktop_app.py
+```
+
+---
+
+### 🐧 Ubuntu/Linux Installation
+
+#### Step 1: Install Prerequisites
+
+```bash
+# Update package list
+sudo apt update
+
+# Install Python 3.10+
+sudo apt install python3 python3-pip python3-venv
+
+# Install Node.js 18+ (via NodeSource)
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt install -y nodejs
+
+# Install Git
+sudo apt install git
+
+# Verify installations
+python3 --version
+node --version
+npm --version
+```
+
+#### Step 2: Clone Repository
 
 ```bash
 git clone https://github.com/smitpatil06/FOSSEE-Hybrid_Web_Application.git
 cd FOSSEE-Hybrid_Web_Application
 ```
 
----
-
-## Linux Installation
-
-### Step 1: Backend Setup
+#### Step 3: Backend Setup
 
 ```bash
 cd chemical_project
 
-# Create Python virtual environment
+# Create and activate virtual environment
 python3 -m venv venv
-
-# Activate virtual environment
 source venv/bin/activate
 
-# Upgrade pip
-pip install --upgrade pip
+# Install dependencies
+pip install django==6.0.1 djangorestframework==3.16.1 django-cors-headers==4.9.0 pandas==3.0.0 matplotlib==3.10.8 reportlab==4.4.9 pillow==12.1.0 requests==2.32.3
 
-# Install backend dependencies
-pip install django==6.0.1 \
-    djangorestframework==3.16.1 \
-    django-cors-headers==4.9.0 \
-    pandas==3.0.0 \
-    matplotlib==3.10.8 \
-    reportlab==4.4.9 \
-    pillow==12.1.0 \
-    requests==2.32.3
-
-# Configure environment (SQLite by default)
+# Setup database (SQLite by default)
 export USE_SQLITE=True
 
-# Run database migrations
+# Run migrations
 python manage.py makemigrations
 python manage.py migrate
-
-# Create superuser account
 python manage.py createsuperuser
 
-# Start development server
+# Start backend server
 python manage.py runserver
 ```
 
-**Expected Output:**
-```
-Starting development server at http://127.0.0.1:8000/
-```
+Backend runs at: **http://localhost:8000**
 
-### Step 2: Web Frontend Setup
+#### Step 4: Web Frontend Setup
 
-*Open a new terminal window*
+*Open a new terminal*
 
 ```bash
 cd frontend-web
 
-# Install Node.js dependencies
+# Install dependencies (using npm or pnpm)
 npm install
+# OR
+pnpm install
 
 # Start development server
 npm run dev
+# OR
+pnpm run dev
 ```
 
-**Expected Output:**
-```
-➜  Local:   http://localhost:5173/
-```
+Web app runs at: **http://localhost:5173**
 
-### Step 3: Desktop Frontend Setup
+#### Step 5: Desktop Frontend Setup
 
-*Open a new terminal window*
+*Open a new terminal*
 
 ```bash
-cd /path/to/Web-app/frontend-desktop
+cd frontend-desktop
 
 # Activate backend virtual environment
 source ../chemical_project/venv/bin/activate
 
-# Install desktop dependencies
-pip install PyQt5==5.15.11 \
-    matplotlib==3.10.8 \
-    requests==2.32.3
+# Install dependencies
+pip install PyQt5==5.15.11 matplotlib==3.10.8 requests==2.32.3
 
 # Run desktop application
 python desktop_app.py
 ```
 
-### Optional: PostgreSQL Setup (Linux)
+---
 
+### Optional: PostgreSQL Setup
+
+If you prefer PostgreSQL over SQLite:
+
+**Ubuntu/Linux:**
 ```bash
-# Install PostgreSQL client
+# Install PostgreSQL
 sudo apt-get install postgresql postgresql-contrib
 
-# Install Python PostgreSQL adapter
+# Install Python adapter
 pip install psycopg2-binary
 
 # Run setup script
@@ -279,605 +303,91 @@ cd chemical_project
 chmod +x setup_postgres.sh
 ./setup_postgres.sh
 
-# Update environment variable
+# Configure and migrate
 export USE_POSTGRESQL=True
 python manage.py migrate
 ```
 
----
-
-## Windows Installation
-
-### Step 1: Backend Setup
-
+**Windows:**
 ```powershell
-# Open PowerShell as Administrator
+# Download and install PostgreSQL from https://www.postgresql.org/download/windows/
 
-cd chemical_project
+# Install Python adapter
+pip install psycopg2-binary
 
-# Create Python virtual environment
-python -m venv venv
-
-# Activate virtual environment
-.\venv\Scripts\Activate.ps1
-
-# If you get execution policy error, run:
-# Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-
-# Upgrade pip
-python -m pip install --upgrade pip
-
-# Install backend dependencies
-pip install django==6.0.1 `
-    djangorestframework==3.16.1 `
-    django-cors-headers==4.9.0 `
-    pandas==3.0.0 `
-    matplotlib==3.10.8 `
-    reportlab==4.4.9 `
-    pillow==12.1.0 `
-    requests==2.32.3
-
-# Configure environment (SQLite by default)
-$env:USE_SQLITE = 'True'
-
-# Run database migrations
-python manage.py makemigrations
+# Configure and migrate
+$env:USE_POSTGRESQL = 'True'
 python manage.py migrate
-
-# Create superuser account
-python manage.py createsuperuser
-
-# Start development server
-python manage.py runserver
 ```
-
-**Expected Output:**
-```
-Starting development server at http://127.0.0.1:8000/
-```
-
-### Step 2: Web Frontend Setup
-
-*Open a new PowerShell window*
-
-```powershell
-cd frontend-web
-
-# Install Node.js dependencies
-npm install
-
-# Start development server
-npm run dev
-```
-
-**Expected Output:**
-```
-➜  Local:   http://localhost:5173/
-```
-
-### Step 3: Desktop Frontend Setup
-
-*Open a new PowerShell window*
-
-```powershell
-cd C:\path\to\Web-app\frontend-desktop
-
-# Activate backend virtual environment
-..\chemical_project\venv\Scripts\Activate.ps1
-
-# Install desktop dependencies
-pip install PyQt5==5.15.11 `
-    matplotlib==3.10.8 `
-    requests==2.32.3
-
-# Run desktop application
-python desktop_app.py
-```
-
-### Optional: PostgreSQL Setup (Windows)
-
-1. **Install PostgreSQL:**
-   - Download from [postgresql.org](https://www.postgresql.org/download/windows/)
-   - Run installer with default settings
-   - Remember the superuser password
-
-2. **Configure Python:**
-   ```powershell
-   pip install psycopg2-binary
-   $env:USE_POSTGRESQL = 'True'
-   python manage.py migrate
-   ```
 
 ---
 
-## 🏗️ Project Architecture
+## 📁 Project Structure
 
 ```
 ChemLabWizard/
-│
-├── 📁 chemical_project/          [Django REST Backend]
+├── chemical_project/          # Django REST Backend
 │   ├── api/
-│   │   ├── models.py             # Database models (UploadBatch, EquipmentData, User)
-│   │   ├── serializers.py        # DRF serializers (validation & transformation)
-│   │   ├── views.py              # REST API views (upload, stats, PDF)
-│   │   ├── urls.py               # URL routing (/api/upload, /api/summary, etc.)
-│   │   ├── auth_views.py         # Authentication views (login, register, logout)
-│   │   └── migrations/           # Database migration files
-│   │
+│   │   ├── models.py         # Database models (UploadBatch, EquipmentData)
+│   │   ├── serializers.py    # DRF serializers
+│   │   ├── views.py          # REST API views (upload, stats, PDF)
+│   │   ├── auth_views.py     # Authentication endpoints
+│   │   └── urls.py           # API routing
 │   ├── chemical_project/
-│   │   ├── settings.py           # Django configuration (DB, CORS, auth)
-│   │   ├── urls.py               # Project-level URL routing
-│   │   ├── asgi.py               # ASGI configuration
-│   │   └── wsgi.py               # WSGI configuration
-│   │
-│   ├── manage.py                 # Django management script
-│   ├── db.sqlite3                # SQLite database (local development)
-│   └── venv/                     # Python virtual environment
+│   │   ├── settings.py       # Django configuration
+│   │   └── urls.py           # Main URL routing
+│   ├── manage.py
+│   └── db.sqlite3            # SQLite database
 │
-├── 📁 frontend-web/              [React Web Client]
+├── frontend-web/             # React Web Client
 │   ├── src/
 │   │   ├── pages/
-│   │   │   ├── Login.jsx         # Authentication page (register/login tabs)
-│   │   │   └── Upload.jsx        # Data upload & visualization page
-│   │   │
+│   │   │   ├── Login.jsx     # Authentication page
+│   │   │   └── Upload.jsx    # Data upload & visualization
 │   │   ├── components/
-│   │   │   ├── Charts.jsx        # Bar & Pie chart components
-│   │   │   └── History.jsx       # Upload history list
-│   │   │
-│   │   ├── api.js                # Axios instance (base URL, interceptors, auth)
-│   │   ├── App.jsx               # Main application component
-│   │   ├── main.jsx              # React DOM render entry point
-│   │   ├── index.css             # Global styles
-│   │   └── App.css               # Component styles
-│   │
-│   ├── public/                   # Static assets
-│   ├── index.html                # HTML template
-│   ├── package.json              # npm dependencies
-│   ├── vite.config.js            # Vite build configuration
-│   ├── tailwind.config.js        # TailwindCSS configuration
-│   └── postcss.config.js         # PostCSS configuration
+│   │   │   ├── Charts.jsx    # Bar & Pie charts
+│   │   │   └── History.jsx   # Upload history
+│   │   ├── api.js            # Axios HTTP client
+│   │   └── App.jsx           # Main component
+│   ├── package.json
+│   └── vite.config.js
 │
-├── 📁 frontend-desktop/          [PyQt5 Desktop Client]
-│   ├── desktop_app.py            # Application entry point
-│   │
+├── frontend-desktop/         # PyQt5 Desktop Client
+│   ├── desktop_app.py        # Entry point
 │   ├── core/
-│   │   └── api_client.py         # HTTP requests handler (session mgmt, endpoints)
-│   │
-│   ├── ui/
-│   │   ├── views/
-│   │   │   ├── login_window.py   # Qt login/register dialog
-│   │   │   └── upload_window.py  # Main application window (tabs: upload, history, charts)
-│   │   │
-│   │   └── components/
-│   │       └── history_widget.py # History list with delete functionality
-│   │
-│   └── requirements.txt          # pip dependencies
+│   │   └── api_client.py     # HTTP client
+│   └── ui/
+│       ├── views/
+│       │   ├── login_window.py
+│       │   └── upload_window.py
+│       └── components/
+│           └── history_widget.py
 │
-├── 📄 sample_equipment_data.csv  # Test dataset (15 equipment records)
-├── 📄 README.md                  # This file
-
+└── sample_equipment_data.csv # Test dataset
 ```
 
-### Architecture Diagram
+---
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                      User Layer                                 │
-├─────────────────────┬─────────────────────┬─────────────────────┤
-│  Web Browser        │  Desktop App        │  PDF Reports        │
-│  (React + Chart.js) │  (PyQt5 + Mpl)      │  (ReportLab)        │
-└────────────┬────────┴────────────┬────────┴───────────┬─────────┘
-             │                     │                    │
-             │  Axios (Requests)   │  Requests          │ API Call
-             │  HTTP/JSON          │  HTTP/JSON         │
-┌────────────▼─────────────────────▼────────────────────▼─────────┐
-│                    API Gateway Layer                            │
-│                 (Django REST Framework)                         │
-├─────────────────────────────────────────────────────────────────┤
-│  • Token Authentication  • CORS Headers  • Request Validation   │
-└──────┬─────────────────────────────────────────────────────┬────┘
-       │                                                     │
-┌──────▼─────────────────────────────────────────────────────▼────┐
-│                    Application Layer                            │
-│              (Django Views & Serializers)                       │
-├─────────────────────────────────────────────────────────────────┤
-│  • AuthView (register/login/logout)                             │
-│  • UploadView (CSV processing → EquipmentData records)          │
-│  • SummaryView (aggregation, type distribution)                 │
-│  • HistoryView (per-user upload tracking)                       │
-│  • PDFView (matplotlib charts → ReportLab → PDF)                │
-└──────┬──────────────────────────────────────────────────┬───────┘
-       │                                                  │
-┌──────▼──────────────────────────────────────────────────▼────────┐
-│                    Data Processing Layer                         │
-│                  (Pandas • Matplotlib)                           │
-├──────────────────────────────────────────────────────────────────┤
-│  • CSV Parsing & Validation (Pandas)                             │
-│  • Statistical Calculations (Pandas/NumPy)                       │
-│  • Chart Generation (Matplotlib → PNG)                           │
-└──────┬───────────────────────────────────────────────────────────┘
-       │
-┌──────▼───────────────────────────────────────────────────────────┐
-│                   Persistence Layer                              │
-├──────────────────────────────────────────────────────────────────┤
-│  SQLite (Default)          │  PostgreSQL (Optional)              │
-│  ├─ users table            │  ├─ users table                     │
-│  ├─ upload_batch table     │  ├─ upload_batch table              │
-│  └─ equipment_data table   │  └─ equipment_data table            │
-└──────────────────────────────────────────────────────────────────┘
-```
+## 🔗 API Endpoints
 
-### Data Flow Diagram
+### Authentication
+- `POST /api/auth/register/` - Register new user
+- `POST /api/auth/login/` - Login and receive token
+- `POST /api/auth/logout/` - Logout
+- `GET /api/auth/profile/` - Get user profile
 
-**User Registration:**
-```
-User Input (Register)
-    ↓
-Web/Desktop Form Validation
-    ↓
-POST /api/auth/register/ {email, username, password}
-    ↓
-Django: Check user existence
-    ↓
-Hash password (PBKDF2)
-    ↓
-Create User record
-    ↓
-Response: {user_id, token}
-    ↓
-Store token in client storage
-    ↓
-Auto-redirect to login page
-```
-
-**CSV Upload & Analysis:**
-```
-User selects CSV file
-    ↓
-File validation (Web: drag-drop, Desktop: file dialog)
-    ↓
-POST /api/upload/ with CSV file + token
-    ↓
-Django:
-  1. Parse CSV with Pandas
-  2. Validate column names & data types
-  3. Create UploadBatch record
-  4. Create EquipmentData records (one per row)
-    ↓
-GET /api/summary/<batch_id>/ with token
-    ↓
-Django:
-  1. Aggregate equipment counts (pandas groupby)
-  2. Calculate statistics (mean, sum, count)
-  3. Generate type distribution
-  4. Return JSON response
-    ↓
-Frontend: Render charts (Chart.js bar + pie)
-    ↓
-Display dashboard with visualizations
-```
-
-**PDF Generation:**
-```
-User clicks "Download Report"
-    ↓
-GET /api/report/<batch_id>/ with auth token
-    ↓
-Django:
-  1. Fetch UploadBatch & EquipmentData from DB
-  2. Generate Matplotlib figure (bar + pie chart)
-  3. Render chart as PNG to BytesIO
-  4. Create ReportLab PDF document
-  5. Add title, summary table, embedded PNG
-  6. Render to bytes
-    ↓
-HTTP Response: PDF file (content-type: application/pdf)
-    ↓
-Browser: Download or open PDF
-```
+### Data Operations
+- `POST /api/upload/` - Upload CSV file
+- `GET /api/history/` - Get user's upload history
+- `GET /api/summary/<batch_id>/` - Get statistics for a dataset
+- `GET /api/report/<batch_id>/` - Download PDF report
 
 ---
 
 ## 💾 Database Configuration
 
-### SQLite (Recommended for Development)
-
-**Advantages:**
-- No external server required
-- Zero configuration
-- Ideal for development/testing
-
-**Setup:**
-```bash
-export USE_SQLITE=True
-python manage.py migrate
-```
-
-**Location:**
-```
-chemical_project/db.sqlite3
-```
-
-### PostgreSQL (Optional for Production)
-
-**Advantages:**
-- Multi-user support
-- Better for concurrent access
-- Production-ready
-- Advanced query capabilities
-
-**Setup (Linux):**
-```bash
-./setup_postgres.sh
-export USE_POSTGRESQL=True
-python manage.py migrate
-```
-
-**Setup (Windows):**
-1. Install PostgreSQL from [postgresql.org](https://www.postgresql.org/)
-2. Run installer (remember superuser password)
-3. Update Django settings to connect
-
-**Connection String:**
-```
-postgresql://postgres:password@localhost:5432/chemlab_db
-```
-
-
-## 🔧 Troubleshooting
-
-### Python/Environment Issues
-
-| Issue | Solution |
-|-------|----------|
-| `ModuleNotFoundError: No module named 'django'` | Run `pip install django==6.0.1` in active venv |
-| `python: command not found` | Use `python3` on Linux or check PATH on Windows |
-| Virtual environment not activating | Linux: Check `source venv/bin/activate`, Windows: Check `.\.venv\Scripts\Activate.ps1` |
-| Permission denied running script | Windows: Run PowerShell as Administrator, Linux: Use `sudo` if needed |
-
-### Backend Issues
-
-| Issue | Solution |
-|-------|----------|
-| `django.db.utils.OperationalError: no such table` | Run `python manage.py migrate` |
-| Port 8000 already in use | Run `python manage.py runserver 8001` or kill process |
-| CORS errors in browser console | Ensure backend is running at `http://localhost:8000` |
-| Static files not loading | Run `python manage.py collectstatic` |
-
-### Frontend Issues
-
-| Issue | Solution |
-|-------|----------|
-| `npm install` fails | Delete `node_modules/` and `package-lock.json`, then retry |
-| Port 5173 not accessible | Check firewall, try `npm run dev -- --host` |
-| Charts not rendering | Check browser console for errors, verify Chart.js is imported |
-| Login fails with 401 | Verify token format in localStorage, check backend logs |
-
-### Desktop App Issues
-
-| Issue | Solution |
-|-------|----------|
-| `ModuleNotFoundError: PyQt5` | Run `pip install PyQt5==5.15.11` in activated venv |
-| Login page text invisible | Update stylesheet in `login_window.py` with explicit colors |
-| Charts not displaying | Ensure Matplotlib backend is 'Agg' or 'Qt5Agg' |
-| Connection refused to backend | Verify backend is running (`http://localhost:8000`), check firewall |
-
-### Database Issues
-
-| Issue | Solution |
-|-------|----------|
-| SQLite locked error | Ensure only one process accessing db.sqlite3, restart server |
-| PostgreSQL connection failed | Check if PostgreSQL service is running, verify credentials |
-| Migration errors | Run `python manage.py makemigrations`, then `migrate` |
-
----
-
-## 🎬 Demo & Submission
-
-### Recording Demo Video
-
-Demonstrate complete workflow:
-1. **Registration** - Create new account (Web)
-2. **Login** - Authentication flow (Desktop)
-3. **CSV Upload** - File selection and processing
-4. **Data Visualization** - Interacting with charts
-5. **PDF Download** - Report generation with charts
-6. **History Management** - Delete datasets
-
-**Suggested Duration:** 2-3 minutes
-
-
-## 👨‍💻 Author
-
-**Smit Patil**  
-- GitHub: [@smitpatil06](https://github.com/smitpatil06)
-- Project: FOSSEE Hybrid Web Application
-- Submission Date: February 2026
-
----
-
-## 📄 License
-
-Submitted as part of FOSSEE (Free/Libre and Open Source Software for Education) internship program.
-
----
-
-## 🙏 Acknowledgments
-
-- **FOSSEE** - Open Source Software for Education Initiative
-- **Django Community** - Web framework & REST framework
-- **React Community** - Frontend framework & ecosystem
-- **PyQt Community** - Cross-platform GUI toolkit
-- **Open Source Contributors** - All dependencies used
-
----
-
-## 📞 Support
-
-For issues or questions:
-1. Check **Troubleshooting** section above
-2. Check project GitHub issues
-3. Review Django & React official documentation
-
-**Last Updated:** February 2, 2026  
-**Status:** Production Ready ✅
-
----
-
-## Installation
-
-### 1. Clone Repository
-
-```bash
-git clone https://github.com/smitpatil06/FOSSEE-Hybrid_Web_Application.git
-cd FOSSEE-Hybrid_Web_Application/Web-app
-```
-
-### 2. Backend Setup
-
-```bash
-cd chemical_project
-
-# Create virtual environment
-python3 -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install django djangorestframework django-cors-headers pandas matplotlib reportlab pillow
-
-# Use SQLite (recommended for quick setup)
-export USE_SQLITE=True  # Windows: set USE_SQLITE=True
-
-# Run migrations
-python manage.py makemigrations
-python manage.py migrate
-
-# Create admin user
-python manage.py createsuperuser
-
-# Start server
-python manage.py runserver
-```
-
-**Backend runs at:** `http://localhost:8000`
-
-### 3. Web Frontend Setup
-
-*Open new terminal*
-
-```bash
-cd frontend-web
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-```
-
-**Web app runs at:** `http://localhost:5173`
-
-### 4. Desktop Frontend Setup
-
-*Open new terminal*
-
-```bash
-cd frontend-desktop
-
-# Activate virtual environment
-source ../chemical_project/venv/bin/activate
-
-# Install dependencies
-pip install PyQt5 matplotlib requests
-
-# Run application
-python desktop_app.py
-```
-
----
-
-## Usage
-
-### Getting Started
-
-1. Start backend server
-2. Register a new account (Web or Desktop)
-3. Login with credentials
-4. Upload `sample_equipment_data.csv` to test
-
-### Web Application
-
-1. Navigate to `http://localhost:5173`
-2. Login or Register
-3. Upload CSV file
-4. View dashboard with charts and statistics
-5. Download PDF reports from history
-
-### Desktop Application
-
-1. Run `python desktop_app.py` from `frontend-desktop/`
-2. Login with same credentials as web
-3. Upload CSV file
-4. View Matplotlib charts and statistics
-5. Access upload history and reports
-
----
-
-## Project Structure
-
-```
-Web-app/
-├── chemical_project/          # Django Backend
-│   ├── api/                   # REST API
-│   │   ├── models.py         # Database models
-│   │   ├── views.py          # API views
-│   │   ├── serializers.py    # Data serialization
-│   │   └── urls.py           # API routes
-│   └── chemical_project/      # Django settings
-│
-├── frontend-web/             # React Frontend
-│   ├── src/
-│   │   ├── pages/           # Login, Upload pages
-│   │   ├── components/      # Charts, History
-│   │   ├── api.js          # API client
-│   │   └── App.jsx         # Main app
-│   └── package.json
-│
-├── frontend-desktop/         # PyQt5 Frontend
-│   ├── desktop_app.py       # Entry point
-│   ├── core/
-│   │   └── api_client.py    # HTTP client
-│   └── ui/
-│       ├── views/
-│       │   ├── login_window.py      # Authentication
-│       │   └── upload_window.py     # Main window
-│       └── components/
-│           └── history_widget.py    # History view
-│
-└── sample_equipment_data.csv # Sample data
-```
-
----
-
-## API Endpoints
-
-### Authentication
-- `POST /api/auth/register/` - Register new user
-- `POST /api/auth/login/` - Login
-- `POST /api/auth/logout/` - Logout
-- `GET /api/auth/profile/` - User profile
-
-### Data Operations
-- `POST /api/upload/` - Upload CSV
-- `GET /api/history/` - Get upload history
-- `GET /api/stats/` - Dashboard statistics
-- `GET /api/report/<id>/` - Download PDF report
-
----
-
-## Database Configuration
-
 ### SQLite (Default)
+Zero configuration required. Database file created at `chemical_project/db.sqlite3`.
 
 ```bash
 export USE_SQLITE=True
@@ -885,60 +395,28 @@ python manage.py migrate
 ```
 
 ### PostgreSQL (Optional)
+For production or multi-user scenarios:
 
 ```bash
+# Install PostgreSQL
+sudo apt-get install postgresql postgresql-contrib  # Linux
+
+# Install Python adapter
+pip install psycopg2-binary
+
+# Run setup script
 cd chemical_project
 chmod +x setup_postgres.sh
-./setup_postgres.sh  # Creates chemlabwizard_db database
+./setup_postgres.sh
 
-pip install psycopg2-binary
+# Configure and migrate
+export USE_POSTGRESQL=True
 python manage.py migrate
 ```
 
 ---
 
-## Testing
-
-Run all three components:
-
-```bash
-# Terminal 1 - Backend
-cd chemical_project
-source venv/bin/activate
-python manage.py runserver
-
-# Terminal 2 - Web Frontend
-cd frontend-web
-npm run dev
-
-# Terminal 3 - Desktop Frontend
-cd frontend-desktop
-source ../chemical_project/venv/bin/activate
-python desktop_app.py
-```
-
-Test with `sample_equipment_data.csv` containing sample chemical equipment data.
-
----
-
-## Requirements Fulfilled
-
-- [x] Django backend with DRF
-- [x] React web frontend with Chart.js
-- [x] PyQt5 desktop frontend with Matplotlib
-- [x] CSV upload (both platforms)
-- [x] Data summary API
-- [x] Visualizations (Bar & Pie charts)
-- [x] History management (last 5 datasets)
-- [x] PDF report generation
-- [x] User authentication
-- [x] Pandas for data processing
-- [x] SQLite database support
-- [x] Sample CSV included
-
----
-
-## Troubleshooting
+## 🔧 Troubleshooting
 
 **Module not found errors:**
 ```bash
@@ -952,45 +430,40 @@ python manage.py migrate
 ```
 
 **CORS errors:**
-- Ensure backend is running at `http://localhost:8000`
-- Check CORS settings in `settings.py`
+- Ensure backend runs at `http://localhost:8000`
+- Verify CORS settings in `chemical_project/chemical_project/settings.py`
 
 **Desktop app not starting:**
 ```bash
 pip install PyQt5 matplotlib requests
 ```
 
----
+**Port already in use:**
+```bash
+# Backend (port 8000)
+python manage.py runserver 8001
 
-## Demo Video
-
-*Link to be added*
-
----
-
-## Learning Resources
-
-Additional documentation for understanding the codebase:
-- `LEARNING_GUIDE.md` - Django fundamentals to advanced
-- `ARCHITECTURE_DIAGRAMS.md` - Visual system architecture
-- `HANDS_ON_TUTORIAL.md` - Practical exercises
-- `AUTHENTICATION_README.md` - Auth implementation details
+# Web frontend (port 5173)
+npm run dev -- --port 5174
+```
 
 ---
 
-## Author
+## 👨‍💻 Author
 
 **Smit Patil**  
-GitHub: [@smitpatil06](https://github.com/smitpatil06)
+- 🐙 GitHub: [@smitpatil06](https://github.com/smitpatil06)
+- 💼 LinkedIn: [04-smit-patil](https://www.linkedin.com/in/04-smit-patil/)
+- 🐦 Twitter/X: [@smit_patil06](https://x.com/smit_patil06)
 
 ---
 
-## License
+## 📄 License
 
 Submitted as part of FOSSEE internship application.
 
 ---
 
-## Acknowledgments
+## 🙏 Acknowledgments
 
 Built for FOSSEE (Free/Libre and Open Source Software for Education)
